@@ -45,6 +45,8 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         if (view.IsMine)
         {
+
+            CalculateMouseWorldPosition();
             if (Input.GetAxis("Fire1") > 0 && canFire && weapon.HasAmmo())
             {
                 Fire();
@@ -53,8 +55,10 @@ public class Shoot : MonoBehaviourPunCallbacks
             {
                 Reload();
             }
-        }
 
+            LookAt();
+
+        }
     }
 
     public void UpdateUI() 
@@ -119,8 +123,6 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     private void CalculateShotDirection() 
     {
-        CalculateMouseWorldPosition();
-
         shotDirection = (mouseWorldPosition - weaponTransform.TransformPoint(Vector3.forward)).normalized;
     }
 
@@ -134,6 +136,11 @@ public class Shoot : MonoBehaviourPunCallbacks
         {
             mouseWorldPosition = hit.point - Vector3.down;
         }
+    }
+
+    private void LookAt() 
+    {
+        transform.LookAt(mouseWorldPosition);
     }
 
     public void SetCamera(Camera camera) 
