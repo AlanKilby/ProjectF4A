@@ -33,6 +33,7 @@ public class Shoot : MonoBehaviourPunCallbacks
         view = transform.GetComponent<PhotonView>();
 
         weapon = weaponTransform.GetComponent<WeaponDisplay>().GetWeapon();
+        weapon.ReloadEntireMagazine();
 
         canFire = true;
         isReloading = false;
@@ -56,7 +57,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     }
 
-    private void UpdateUI() 
+    public void UpdateUI() 
     {
         magazineUI.text = weapon.name + " : " + weapon.magazine + " / " + weapon.magazineSizeMax;
     }

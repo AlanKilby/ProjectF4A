@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 7831886606182892037}
   - component: {fileID: -8628606390038080958}
   - component: {fileID: 2555062149293414572}
+  - component: {fileID: -8345138819912771136}
+  - component: {fileID: -6474706696257434374}
   m_Layer: 0
   m_Name: PlayerWithWeapon
   m_TagString: Player
@@ -233,6 +235,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 6d6fcc8fa043caf42882828aa54f151f, type: 2}
   possibleSpawns: []
+--- !u!114 &-8345138819912771136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870706349301637177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e81c478dd9fb5e48915e342098a088b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeUnderSkillEffect: 2
+  cooldown: 10
+  shootScript: {fileID: 7831886606182892037}
+--- !u!114 &-6474706696257434374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870706349301637177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5722ee6397f7b924e9905e7fa403bf1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5702920288930897486
 GameObject:
   m_ObjectHideFlags: 0

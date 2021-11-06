@@ -5,5 +5,7 @@ using UnityEngine;
 public interface ISkills
 {
     public void ActivateSkill();
+    public bool IsActivated();
+    public bool IsOnCooldown();
 
 }
