@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: 
   damage: 10
-  magazine: 1
+  magazine: 6
   magazineSizeMax: 6
   reloadTime: 1
   numberBulletReload: 0
@@ -22,5 +22,5 @@ MonoBehaviour:
   fireRate: 0.16
   bulletsPerShot: 1
   bulletSpeed: 15
-  mesh: {fileID: 4300004, guid: efe9381559c516743bd05cef82f39ebb, type: 3}
+  mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   bulletPrefab: {fileID: 5775993873921989785, guid: 6369416beeb265a4b81f9479911fffb2, type: 3}
