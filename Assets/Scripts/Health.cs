@@ -37,7 +37,7 @@ public class Health : MonoBehaviourPunCallbacks
         {
             Debug.Log("Died !");
             view.RPC("TeleportPlayer", RpcTarget.All);
-            ScoreManager.instance.AddPoint(damagedBy);
+            ScoreManager.instance.AddPoint(damagedBy.GetComponent<CharacterDisplay>().GetPlayerName());
         } 
     }
 

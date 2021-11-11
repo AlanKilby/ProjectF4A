@@ -10,8 +10,8 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private int scoreMax;
 
-    private Dictionary<GameObject, int> playerScores = new Dictionary<GameObject, int>();
-    private GameObject winner;
+    private Dictionary<string, int> playerScores = new Dictionary<string, int>();
+    private string winner;
 
     [SerializeField] private TMP_Text scoreText;
     private bool scoreTextEnabled;
@@ -24,25 +24,26 @@ public class ScoreManager : MonoBehaviour
         view = transform.GetComponent<PhotonView>();
     }
 
-    public void AddPlayer(GameObject player)
+    [PunRPC]
+    public void AddPlayer(string player)
     {
         playerScores.Add(player, 0);
     }
 
-    private void CheckIfWin(GameObject player)
+    private void CheckIfWin(string player)
     {
         if (playerScores[player] >= scoreMax)
         {
             this.winner = player;
-            view.RPC("ShowWinner", RpcTarget.All);
+            view.RPC("ShowWinner", RpcTarget.All, player);
         }
     }
 
     [PunRPC]
-    private void ShowWinner()
+    private void ShowWinner(string winner)
     {
         scoreTextEnabled = !scoreTextEnabled;
-        scoreText.text = "Player wins";
+        scoreText.text = winner + " wins !";
         scoreText.enabled = scoreTextEnabled;
     }
 
@@ -54,7 +55,8 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddPoint(GameObject player)
+    [PunRPC]
+    public void AddPoint(string player)
     {
         playerScores[player] += 1;
         CheckIfWin(player);

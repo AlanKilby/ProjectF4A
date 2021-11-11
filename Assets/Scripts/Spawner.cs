@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviourPunCallbacks
 {
     [SerializeField] private GameObject playerPrefab;
     private GameObject player;
+    private string playerName;
 
     [SerializeField] private CameraFollowPlayer cameraFP;
     [SerializeField] private Camera camera;
@@ -19,12 +20,13 @@ public class Spawner : MonoBehaviourPunCallbacks
 
     private PhotonView view;
 
-    private void Start()
+    public void SpawnNewPlayer()
     {
         spawnPos = new Vector3(Random.Range(minPosX, maxPosX), 1.5f, Random.Range(minPosZ, maxPosZ));
         player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPos, Quaternion.identity);
+        player.GetComponent<CharacterDisplay>().SetPlayerName(playerName);
 
-        ScoreManager.instance.AddPlayer(player);
+        ScoreManager.instance.transform.GetComponent<PhotonView>().RPC("AddPlayer", RpcTarget.All, playerName);
 
         SetCamera(player);
     }
@@ -40,5 +42,10 @@ public class Spawner : MonoBehaviourPunCallbacks
         }
 
         player.GetComponent<Shoot>().SetCamera(camera);
+    }
+
+    public void SetPlayerName(string playerName)
+    {
+        this.playerName = playerName;
     }
 }
