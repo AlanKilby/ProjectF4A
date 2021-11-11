@@ -4,24 +4,30 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//
+//  SI VOUS AVEZ BESOIN DE MODIFIER AUTRE CHOSE QUE LES VARIABLES SERIALISÉES DANS CETTE CLASSE, PREVENEZ MOI
+//
+
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
 
+    [SerializeField] private GameManager gameManager;
+    private PhotonView gameManagerView;
+    
     [SerializeField] private int scoreMax;
 
     private Dictionary<string, int> playerScores = new Dictionary<string, int>();
     private string winner;
 
     [SerializeField] private TMP_Text scoreText;
-    private bool scoreTextEnabled;
     private PhotonView view;
 
     private void Start()
     {
         instance = this;
-        scoreTextEnabled = false;
         view = transform.GetComponent<PhotonView>();
+        gameManagerView = gameManager.transform.GetComponent<PhotonView>();
     }
 
     [PunRPC]
@@ -36,23 +42,28 @@ public class ScoreManager : MonoBehaviour
         {
             this.winner = player;
             view.RPC("ShowWinner", RpcTarget.All, player);
+            gameManagerView.RPC("RestartGame", RpcTarget.All);
+            ResetScore();
         }
     }
 
     [PunRPC]
     private void ShowWinner(string winner)
     {
-        scoreTextEnabled = !scoreTextEnabled;
         scoreText.text = winner + " wins !";
-        scoreText.enabled = scoreTextEnabled;
+        scoreText.enabled = !scoreText.enabled;
     }
+
+    Dictionary<string, int> playerScoresBuffer;
 
     public void ResetScore()
     {
+        playerScoresBuffer = new Dictionary<string, int>();
         foreach (var player in playerScores)
         {
-            playerScores[player.Key] = 0;
+            playerScoresBuffer.Add(player.Key, 0);
         }
+        playerScores = playerScoresBuffer;
     }
 
     [PunRPC]

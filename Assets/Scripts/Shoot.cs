@@ -148,4 +148,9 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         this.camera = camera;
     }
+
+    public void SetCanFire(bool canFire)
+    {
+        this.canFire = canFire;
+    }
 }

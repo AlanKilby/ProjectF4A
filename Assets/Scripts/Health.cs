@@ -35,7 +35,6 @@ public class Health : MonoBehaviourPunCallbacks
     {
         if (character.IsDead()) 
         {
-            Debug.Log("Died !");
             view.RPC("TeleportPlayer", RpcTarget.All);
             ScoreManager.instance.AddPoint(damagedBy.GetComponent<CharacterDisplay>().GetPlayerName());
         } 

@@ -5,6 +5,8 @@ using Photon.Pun;
 
 public class Spawner : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private GameManager gameManager;
+
     [SerializeField] private GameObject playerPrefab;
     private GameObject player;
     private string playerName;
@@ -25,6 +27,8 @@ public class Spawner : MonoBehaviourPunCallbacks
         spawnPos = new Vector3(Random.Range(minPosX, maxPosX), 1.5f, Random.Range(minPosZ, maxPosZ));
         player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPos, Quaternion.identity);
         player.GetComponent<CharacterDisplay>().SetPlayerName(playerName);
+
+        gameManager.SetPlayer(player);
 
         ScoreManager.instance.transform.GetComponent<PhotonView>().RPC("AddPlayer", RpcTarget.All, playerName);
 
