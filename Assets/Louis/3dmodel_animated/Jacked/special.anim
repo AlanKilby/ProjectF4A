@@ -1434,7 +1434,14 @@ AnimationClip:
       m_RotationOrder: 4
     path: Armature/root/shoulder/U_arm/Low_arm/hand/fingers
   m_FloatCurves: []
-  m_PPtrCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 07befea329f34e34e9cb12378c770d0f, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: _jackedol002
+    classID: 137
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -1484,6 +1491,13 @@ AnimationClip:
       typeID: 4
       customType: 0
       isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1116252070
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 137
+      customType: 21
+      isPPtrCurve: 1
     - serializedVersion: 2
       path: 2104266162
       attribute: 1
@@ -1617,7 +1631,8 @@ AnimationClip:
       typeID: 4
       customType: 0
       isPPtrCurve: 0
-    pptrCurveMapping: []
+    pptrCurveMapping:
+    - {fileID: 2100000, guid: 07befea329f34e34e9cb12378c770d0f, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
