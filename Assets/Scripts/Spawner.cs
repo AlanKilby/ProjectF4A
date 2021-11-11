@@ -24,6 +24,8 @@ public class Spawner : MonoBehaviourPunCallbacks
         spawnPos = new Vector3(Random.Range(minPosX, maxPosX), 1.5f, Random.Range(minPosZ, maxPosZ));
         player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPos, Quaternion.identity);
 
+        ScoreManager.instance.AddPlayer(player);
+
         SetCamera(player);
     }
 

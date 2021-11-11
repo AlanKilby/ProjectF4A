@@ -98,6 +98,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
         bulletDamage = bullet.GetComponent<DealDamage>();
         bulletDamage.SetDamage(weapon.damage);
+        bulletDamage.SetPlayer(transform.gameObject);
 
         rb.AddForce(shotDirection * weapon.bulletSpeed, ForceMode.Impulse);
     }

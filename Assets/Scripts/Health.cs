@@ -7,6 +7,8 @@ public class Health : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Character character;
 
+    private GameObject damagedBy;
+
     private Vector3 spawnPos = new Vector3(0, 1.5f, 0);
     [SerializeField] private List<Vector3> possibleSpawns = new List<Vector3>();
 
@@ -35,6 +37,7 @@ public class Health : MonoBehaviourPunCallbacks
         {
             Debug.Log("Died !");
             view.RPC("TeleportPlayer", RpcTarget.All);
+            ScoreManager.instance.AddPoint(damagedBy);
         } 
     }
 
@@ -64,5 +67,10 @@ public class Health : MonoBehaviourPunCallbacks
     {
         rand = Random.Range(0, possibleSpawns.Count - 1);
         return possibleSpawns[rand];
+    }
+
+    public void SetDamagedBy(GameObject damagedBy)
+    {
+        this.damagedBy = damagedBy;
     }
 }
