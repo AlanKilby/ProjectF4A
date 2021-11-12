@@ -63,7 +63,8 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     public void UpdateUI() 
     {
-        magazineUI.text = weapon.name + " : " + weapon.magazine + " / " + weapon.magazineSizeMax;
+        if(view.IsMine)
+            magazineUI.text = weapon.name + " : " + weapon.magazine + " / " + weapon.magazineSizeMax;
     }
 
     private void Fire()
@@ -89,7 +90,9 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         CalculateShotDirection();
 
-        bullet = PhotonNetwork.Instantiate(weapon.bulletPrefab.name, weaponTransform.position + weaponTransform.forward, Quaternion.identity);
+        bullet = Pooler.instance.Pop("Bullet");
+        bullet.transform.position = weaponTransform.position + weaponTransform.forward;
+        //bullet = PhotonNetwork.Instantiate(weapon.bulletPrefab.name, weaponTransform.position + weaponTransform.forward, Quaternion.identity);
         rb = bullet.GetComponent<Rigidbody>();
 
         bulletRange = bullet.GetComponent<CalculateBulletRange>();
@@ -98,6 +101,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
         bulletDamage = bullet.GetComponent<DealDamage>();
         bulletDamage.SetDamage(weapon.damage);
+        bulletDamage.SetPlayer(transform.gameObject);
 
         rb.AddForce(shotDirection * weapon.bulletSpeed, ForceMode.Impulse);
     }
@@ -146,5 +150,10 @@ public class Shoot : MonoBehaviourPunCallbacks
     public void SetCamera(Camera camera) 
     {
         this.camera = camera;
+    }
+
+    public void SetCanFire(bool canFire)
+    {
+        this.canFire = canFire;
     }
 }

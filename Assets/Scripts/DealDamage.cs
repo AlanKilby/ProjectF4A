@@ -7,6 +7,9 @@ public class DealDamage : MonoBehaviour
 {
     private int damage;
 
+    private GameObject player;
+    private Health damagedPlayerHealth;
+
     private PhotonView view;
 
     private void OnTriggerEnter(Collider other)
@@ -16,7 +19,9 @@ public class DealDamage : MonoBehaviour
             view = other.transform.GetComponent<PhotonView>();
             if (!view.IsMine)
             {
-                other.transform.GetComponent<Health>().TakeDamage(damage);
+                damagedPlayerHealth = other.transform.GetComponent<Health>();
+                damagedPlayerHealth.SetDamagedBy(player);
+                damagedPlayerHealth.TakeDamage(damage);
             }
         }
 
@@ -35,5 +40,10 @@ public class DealDamage : MonoBehaviour
     public int GetDamage() 
     {
         return this.damage;
+    }
+
+    public void SetPlayer(GameObject player)
+    {
+        this.player = player;
     }
 }

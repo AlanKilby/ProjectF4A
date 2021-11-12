@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: -8345138819912771136}
   - component: {fileID: -6474706696257434374}
   m_Layer: 0
-  m_Name: PlayerWithWeapon
+  m_Name: PlayerWithWeapon 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 2
 --- !u!114 &6032207802749239597
 MonoBehaviour:
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3149906208163811576}
-  character: {fileID: 11400000, guid: 6d6fcc8fa043caf42882828aa54f151f, type: 2}
+  character: {fileID: 11400000, guid: cf2c49132157e104a8d8477671585206, type: 2}
 --- !u!114 &3126400518495343332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38753cec93053fa40b17d6bda8f09940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 6d6fcc8fa043caf42882828aa54f151f, type: 2}
+  character: {fileID: 11400000, guid: cf2c49132157e104a8d8477671585206, type: 2}
 --- !u!114 &2555062149293414572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37425bcec70ae18418b366ec767ea2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 6d6fcc8fa043caf42882828aa54f151f, type: 2}
+  character: {fileID: 11400000, guid: cf2c49132157e104a8d8477671585206, type: 2}
   possibleSpawns: []
 --- !u!114 &-8345138819912771136
 MonoBehaviour:
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Magazine
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

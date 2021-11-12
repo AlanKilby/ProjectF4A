@@ -6,6 +6,7 @@ public class CharacterDisplay : MonoBehaviour
 {
 
     [SerializeField] private Character character;
+    private string playerName;
 
     private void Start()
     {
@@ -25,6 +26,16 @@ public class CharacterDisplay : MonoBehaviour
     public Character GetCharacter() 
     {
         return this.character;
+    }
+
+    public void SetPlayerName(string name)
+    {
+        this.playerName = name;
+    }
+
+    public string GetPlayerName()
+    {
+        return this.playerName;
     }
 
 }
