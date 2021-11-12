@@ -28,12 +28,26 @@ public class ScoreManager : MonoBehaviour
         instance = this;
         view = transform.GetComponent<PhotonView>();
         gameManagerView = gameManager.transform.GetComponent<PhotonView>();
+        view.RPC("UpdateDictionary", RpcTarget.All);
     }
 
     [PunRPC]
     public void AddPlayer(string player)
     {
-        playerScores.Add(player, 0);
+        if (!playerScores.ContainsKey(player)) 
+        {
+            playerScores.Add(player, 0);
+        }
+        PlayerScoresToString();
+    }
+
+    [PunRPC]
+    public void UpdateDictionary() 
+    {
+        foreach (var player in playerScores)
+        {
+            view.RPC("AddPlayer", RpcTarget.All, player.Key);
+        }
     }
 
     private void CheckIfWin(string player)
@@ -43,7 +57,7 @@ public class ScoreManager : MonoBehaviour
             this.winner = player;
             view.RPC("ShowWinner", RpcTarget.All, player);
             gameManagerView.RPC("RestartGame", RpcTarget.All);
-            ResetScore();
+            view.RPC("ResetScore", RpcTarget.All);
         }
     }
 
@@ -56,6 +70,7 @@ public class ScoreManager : MonoBehaviour
 
     Dictionary<string, int> playerScoresBuffer;
 
+    [PunRPC]
     public void ResetScore()
     {
         playerScoresBuffer = new Dictionary<string, int>();
@@ -64,12 +79,14 @@ public class ScoreManager : MonoBehaviour
             playerScoresBuffer.Add(player.Key, 0);
         }
         playerScores = playerScoresBuffer;
+        PlayerScoresToString();
     }
 
     [PunRPC]
     public void AddPoint(string player)
     {
         playerScores[player] += 1;
+        PlayerScoresToString();
         CheckIfWin(player);
     }
 

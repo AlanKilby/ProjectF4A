@@ -36,7 +36,7 @@ public class Health : MonoBehaviourPunCallbacks
         if (character.IsDead()) 
         {
             view.RPC("TeleportPlayer", RpcTarget.All);
-            ScoreManager.instance.AddPoint(damagedBy.GetComponent<CharacterDisplay>().GetPlayerName());
+            ScoreManager.instance.transform.GetComponent<PhotonView>().RPC("AddPoint", RpcTarget.All, damagedBy.GetComponent<CharacterDisplay>().GetPlayerName());
         } 
     }
 
@@ -48,6 +48,7 @@ public class Health : MonoBehaviourPunCallbacks
 
     IEnumerator TeleportPlayerCoroutine() 
     {
+        character.ResetHp();
         meshRenderer.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false); // l'arme du joueur
 

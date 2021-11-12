@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        if (t > 0)
+        if (t > 1)
         {
             StartCoroutine(UpdateRestartTimerCoroutine(t - 1));
         }

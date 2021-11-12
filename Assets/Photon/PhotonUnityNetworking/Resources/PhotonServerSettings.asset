@@ -45,6 +45,8 @@ MonoBehaviour:
   - AddPlayer
   - AddPoint
   - RestartGame
+  - ResetScore
+  - UpdateDictionary
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
