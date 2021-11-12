@@ -90,7 +90,9 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         CalculateShotDirection();
 
-        bullet = PhotonNetwork.Instantiate(weapon.bulletPrefab.name, weaponTransform.position + weaponTransform.forward, Quaternion.identity);
+        bullet = Pooler.instance.Pop("Bullet");
+        bullet.transform.position = weaponTransform.position + weaponTransform.forward;
+        //bullet = PhotonNetwork.Instantiate(weapon.bulletPrefab.name, weaponTransform.position + weaponTransform.forward, Quaternion.identity);
         rb = bullet.GetComponent<Rigidbody>();
 
         bulletRange = bullet.GetComponent<CalculateBulletRange>();
