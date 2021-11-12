@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Spawner : MonoBehaviourPunCallbacks
+public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
+    public static Spawner instance;
 
+    [SerializeField] private List<GameObject> playerPrefabs;
+    private int chosenCharacter;
     [SerializeField] private GameObject playerPrefab;
     private GameObject player;
     private string playerName;
@@ -20,12 +23,22 @@ public class Spawner : MonoBehaviourPunCallbacks
     [SerializeField] private float maxPosZ;
     private Vector3 spawnPos;
 
-    private PhotonView view;
+    [SerializeField] private List<Vector3> possibleSpawns = new List<Vector3>();
+
+    private PhotonView playerView;
+
+    private void Start()
+    {
+        instance = this;
+    }
+
+    private int rand;
 
     public void SpawnNewPlayer()
     {
-        spawnPos = new Vector3(Random.Range(minPosX, maxPosX), 1.5f, Random.Range(minPosZ, maxPosZ));
-        player = PhotonNetwork.Instantiate(playerPrefab.name, spawnPos, Quaternion.identity);
+        rand = Random.Range(0, possibleSpawns.Count - 1);
+        spawnPos = possibleSpawns[rand];
+        player = PhotonNetwork.Instantiate(playerPrefabs[chosenCharacter].name, spawnPos, Quaternion.identity);
         player.GetComponent<CharacterDisplay>().SetPlayerName(playerName);
 
         gameManager.SetPlayer(player);
@@ -38,9 +51,9 @@ public class Spawner : MonoBehaviourPunCallbacks
     private void SetCamera(GameObject player)
     {
 
-        view = player.GetComponent<PhotonView>();
+        playerView = player.GetComponent<PhotonView>();
 
-        if (view.IsMine)
+        if (playerView.IsMine)
         {
             cameraFP.SetPlayer(player.transform);
         }
@@ -51,5 +64,15 @@ public class Spawner : MonoBehaviourPunCallbacks
     public void SetPlayerName(string playerName)
     {
         this.playerName = playerName;
+    }
+
+    public List<Vector3> GetPossibleSpawns() 
+    {
+        return this.possibleSpawns;
+    }
+
+    public void SetChosenCharacter(int chosenCharacter) 
+    {
+        this.chosenCharacter = chosenCharacter;
     }
 }

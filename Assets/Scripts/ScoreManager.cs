@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-//
-//  SI VOUS AVEZ BESOIN DE MODIFIER AUTRE CHOSE QUE LES VARIABLES SERIALISÉES DANS CETTE CLASSE, PREVENEZ MOI
-//
+//**************************************************************************************************************
+//*                                                                                                            *
+//*  SI VOUS AVEZ BESOIN DE MODIFIER AUTRE CHOSE QUE LES VARIABLES SERIALISÉES DANS CETTE CLASSE, PREVENEZ MOI *
+//*                                                                                                            *
+//**************************************************************************************************************
 
 public class ScoreManager : MonoBehaviour
 {
@@ -38,7 +40,6 @@ public class ScoreManager : MonoBehaviour
         {
             playerScores.Add(player, 0);
         }
-        PlayerScoresToString();
     }
 
     [PunRPC]
@@ -79,18 +80,16 @@ public class ScoreManager : MonoBehaviour
             playerScoresBuffer.Add(player.Key, 0);
         }
         playerScores = playerScoresBuffer;
-        PlayerScoresToString();
     }
 
     [PunRPC]
     public void AddPoint(string player)
     {
         playerScores[player] += 1;
-        PlayerScoresToString();
         CheckIfWin(player);
     }
 
-    private void PlayerScoresToString()
+    private void PlayerScoresDebug()
     {
         foreach (var player in playerScores)
         {

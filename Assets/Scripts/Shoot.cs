@@ -63,7 +63,8 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     public void UpdateUI() 
     {
-        magazineUI.text = weapon.name + " : " + weapon.magazine + " / " + weapon.magazineSizeMax;
+        if(view.IsMine)
+            magazineUI.text = weapon.name + " : " + weapon.magazine + " / " + weapon.magazineSizeMax;
     }
 
     private void Fire()

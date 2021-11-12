@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Health : MonoBehaviourPunCallbacks
+public class Health : MonoBehaviour
 {
     [SerializeField] private Character character;
 
     private GameObject damagedBy;
 
-    private Vector3 spawnPos = new Vector3(0, 1.5f, 0);
-    [SerializeField] private List<Vector3> possibleSpawns = new List<Vector3>();
+    [SerializeField] private List<Vector3> possibleSpawns;
 
     private PhotonView view;
 
@@ -21,8 +20,7 @@ public class Health : MonoBehaviourPunCallbacks
     {
         view = transform.GetComponent<PhotonView>();
         meshRenderer = transform.GetComponent<MeshRenderer>();
-
-        possibleSpawns.Add(spawnPos);
+        possibleSpawns = Spawner.instance.GetPossibleSpawns();
     }
 
     public void TakeDamage(int damage) 
