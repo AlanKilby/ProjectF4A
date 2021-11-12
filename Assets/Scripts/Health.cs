@@ -28,6 +28,7 @@ public class Health : MonoBehaviourPunCallbacks
         character.TakeDamage(damage);
         CheckIsDead();
     }
+    
 
     private void CheckIsDead() 
     {
