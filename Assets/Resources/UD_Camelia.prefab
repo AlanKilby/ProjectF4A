@@ -139,6 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3149906208163811576}
   character: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
+  speedMultiplier: 0
+  canMove: 0
 --- !u!114 &3126400518495343332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
   possibleSpawns: []
+  canBeHit: 0
 --- !u!114 &-8345138819912771136
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class FireWalk : MonoBehaviour, ISkills
     [SerializeField] private PlayerMovementController playerMovementController;
     [SerializeField] private GameObject damageZone;
 
+
+
     private PhotonView view;
 
 

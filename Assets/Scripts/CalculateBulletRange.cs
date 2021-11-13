@@ -10,8 +10,11 @@ public class CalculateBulletRange : MonoBehaviour
 
     private PhotonView view;
 
+    private Rigidbody rb;
+
     private void Start()
     {
+        transform.GetComponent<Rigidbody>();
         view = transform.GetComponent<PhotonView>();
     }
 
@@ -21,7 +24,7 @@ public class CalculateBulletRange : MonoBehaviour
         {
             if (view.IsMine) 
             {
-                PhotonNetwork.Destroy(view);
+                Pooler.instance.Depop("Bullet", transform.gameObject, rb);
             }
         }
     }
