@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b04f78333ed40e45a17438f9a4e3f76, type: 3}
-  m_Name: UD_Camelia
+  m_Name: UD_Snippy
   m_EditorClassIdentifier: 
-  characterName: Camelia
-  hp: 110
-  maxHp: 110
-  speed: 6
-  ultimate: 4
+  characterName: Jacked
+  hp: 120
+  maxHp: 120
+  speed: 10
+  ultimate: 6
   mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}

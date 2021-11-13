@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: -6474706696257434374}
   - component: {fileID: 8397159635146853354}
   m_Layer: 0
-  m_Name: UD_Camelia
+  m_Name: UD_Snippy
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3149906208163811576}
-  character: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
+  character: {fileID: 11400000, guid: 2831da647e3d7234aae0990cd4f90578, type: 2}
   speedMultiplier: 0
   canMove: 0
 --- !u!114 &3126400518495343332
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38753cec93053fa40b17d6bda8f09940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
+  character: {fileID: 11400000, guid: 2831da647e3d7234aae0990cd4f90578, type: 2}
 --- !u!114 &2555062149293414572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37425bcec70ae18418b366ec767ea2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
+  character: {fileID: 11400000, guid: 2831da647e3d7234aae0990cd4f90578, type: 2}
   possibleSpawns: []
   canBeHit: 0
 --- !u!114 &-8345138819912771136
@@ -718,7 +718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c2d1f269387694181ce36c0f3fc994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 948c9b3251a3f874e964f907739da1fa, type: 2}
+  weapon: {fileID: 11400000, guid: 5a8b47fab9726c747adc8cbf245e6e9a, type: 2}
 --- !u!1001 &6262753347787528721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -814,6 +814,10 @@ PrefabInstance:
       propertyPath: CD
       value: 
       objectReference: {fileID: -8628606390038080958}
+    - target: {fileID: 4743316245937531313, guid: 1675be4947811994381d35894b6f71d5, type: 3}
+      propertyPath: ch
+      value: 
+      objectReference: {fileID: 11400000, guid: 2831da647e3d7234aae0990cd4f90578, type: 2}
     - target: {fileID: 5979228021820247619, guid: 1675be4947811994381d35894b6f71d5, type: 3}
       propertyPath: CD
       value: 
