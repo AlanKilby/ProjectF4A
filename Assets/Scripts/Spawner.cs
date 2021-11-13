@@ -10,7 +10,6 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] private List<GameObject> playerPrefabs;
     private int chosenCharacter;
-    [SerializeField] private GameObject playerPrefab;
     private GameObject player;
     private string playerName;
 
