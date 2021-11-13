@@ -295,6 +295,13 @@ AnimationClip:
     path: _camelialegs
     classID: 137
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 50a51cd4e7736c847a8240e6bb206eae, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: smoke camelia
+    classID: 199
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -314,6 +321,13 @@ AnimationClip:
       attribute: 0
       script: {fileID: 0}
       typeID: 137
+      customType: 21
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 1626705348
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 199
       customType: 21
       isPPtrCurve: 1
     - serializedVersion: 2
@@ -374,6 +388,7 @@ AnimationClip:
       isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 2100000, guid: df783b3dc506eab4189820bdbd5dacf3, type: 2}
+    - {fileID: 2100000, guid: 50a51cd4e7736c847a8240e6bb206eae, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

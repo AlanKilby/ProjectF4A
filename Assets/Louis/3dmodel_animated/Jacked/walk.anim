@@ -1019,6 +1019,34 @@ AnimationClip:
     path: _jackedol002
     classID: 137
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: special jacked
+    classID: 199
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: special jacked/Particle System (1)
+    classID: 199
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: special jacked/Particle System (1)/Particle System
+    classID: 199
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: special jacked/Particle System (1)/Particle System/Particle System
+    classID: 199
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -1052,6 +1080,34 @@ AnimationClip:
       attribute: 0
       script: {fileID: 0}
       typeID: 137
+      customType: 21
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2565634695
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 199
+      customType: 21
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 1817676292
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 199
+      customType: 21
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 3212585674
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 199
+      customType: 21
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 3175691479
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 199
       customType: 21
       isPPtrCurve: 1
     - serializedVersion: 2
@@ -1210,6 +1266,10 @@ AnimationClip:
       isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 2100000, guid: 54fc4f211b70e25429f0c9d9b247cbd4, type: 2}
+    - {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    - {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    - {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    - {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -1564,6 +1564,20 @@ AnimationClip:
     path: Leg
     classID: 137
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: smoke spiny
+    classID: 199
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: smoke jacked
+    classID: 199
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -1646,6 +1660,20 @@ AnimationClip:
       attribute: 0
       script: {fileID: 0}
       typeID: 137
+      customType: 21
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 3100367791
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 199
+      customType: 21
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 676638173
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 199
       customType: 21
       isPPtrCurve: 1
     - serializedVersion: 2
@@ -1832,6 +1860,8 @@ AnimationClip:
       isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 2100000, guid: 9f72573243959034ba655eb1c4a0d220, type: 2}
+    - {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
+    - {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
