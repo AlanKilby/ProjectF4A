@@ -23,7 +23,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (view.IsMine && canMove)
         {
-            rb.velocity = (Input.GetAxis("Vertical") * Vector3.forward+ Input.GetAxis("Horizontal") * Vector3.right).normalized * character.speed * speedMultiplier;
+            rb.velocity = (Input.GetAxisRaw("Vertical") * Vector3.forward+ Input.GetAxisRaw("Horizontal") * Vector3.right).normalized * character.speed * speedMultiplier;
         }
     }
 

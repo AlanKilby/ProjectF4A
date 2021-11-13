@@ -24,11 +24,9 @@ public class Dash : MonoBehaviour, ISkills
 
     private void Update()
     {
-        if(Input.GetAxisRaw("Vertical") != 0)
+        if(Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0)
             verticalDirection = Input.GetAxisRaw("Vertical");
-
-        if(Input.GetAxisRaw("Horizontal") != 0)
-            horizontalDirection = Input.GetAxisRaw("Horizontal");
+            horizontalDirection = Input.GetAxisRaw("Horizontal");            
     }
     public void ActivateSkill()
     {

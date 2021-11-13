@@ -2394,7 +2394,7 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 1870706349301637177, guid: 4d46109465c50a74a87d6e32cfc22204, type: 3}
   - {fileID: 1008161093268161691, guid: a61e5944c195cef4991651e2eabf7dc9, type: 3}
-  - {fileID: 1870706349301637177, guid: 00cd285ef0f956444ac1d690686a0cce, type: 3}
+  - {fileID: 3246533128200746805, guid: fa99c259be4928c48adfb45401f3dd12, type: 3}
   playerPrefab: {fileID: 1870706349301637177, guid: 00cd285ef0f956444ac1d690686a0cce, type: 3}
   cameraFP: {fileID: 6503254397739310740}
   camera: {fileID: 5640438379758178702}
