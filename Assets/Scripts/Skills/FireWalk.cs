@@ -11,7 +11,9 @@ public class FireWalk : MonoBehaviour, ISkills
     [SerializeField] private PlayerMovementController playerMovementController;
     [SerializeField] private GameObject damageZone;
 
-
+    public CharacterAnimManager characterAnim;
+    public LegAnimManager legAnim;
+    public GunAnimation gunAnim;
 
     private PhotonView view;
 
@@ -62,6 +64,11 @@ public class FireWalk : MonoBehaviour, ISkills
     {
         isActivated = true;
 
+        characterAnim.ChangeAnimationState(characterAnim.CHARACTER_SPECIAL);
+        gunAnim.ChangeGunAnimationState(gunAnim.SPECIAL);
+        characterAnim.canChangeAnim = false;
+        
+
         // Player movement speed multiplied
         float oldSpeedM = playerMovementController.speedMultiplier;
         playerMovementController.speedMultiplier = speedMultiplier;
@@ -73,6 +80,8 @@ public class FireWalk : MonoBehaviour, ISkills
 
         // Player movement speed back to normal
         playerMovementController.speedMultiplier = oldSpeedM;
+
+        characterAnim.canChangeAnim = true;
 
         // Damage Zone Deactivation
         damageZone.SetActive(false);

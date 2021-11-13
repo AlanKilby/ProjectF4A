@@ -11,6 +11,10 @@ public class Bloodlust : MonoBehaviour, ISkills
     private Weapon weapon;
     private int InitialBulletPerShot;
 
+    public CharacterAnimManager characterAnim;
+    public LegAnimManager legAnim;
+    public GunAnimation gunAnim;
+
     private bool isActivated;
     private bool isOnCooldown;
 
@@ -39,7 +43,22 @@ public class Bloodlust : MonoBehaviour, ISkills
 
         shootScript.UpdateUI();
 
+        // Animation
+        characterAnim.ChangeAnimationState(characterAnim.CHARACTER_SPECIAL);
+        gunAnim.ChangeGunAnimationState(gunAnim.SPECIAL);
+        legAnim.ChangeAnimationState(legAnim.SPECIAL);
+
+        // Lock Anim
+        characterAnim.canChangeAnim = false;
+        gunAnim.canChangeAnim = false;
+        legAnim.canChangeAnim = false;
+
         yield return new WaitForSeconds(t);
+
+        // Unlock Anim
+        characterAnim.canChangeAnim = true;
+        gunAnim.canChangeAnim = true;
+        legAnim.canChangeAnim = true;
 
         weapon.bulletsPerShot = InitialBulletPerShot;
 
