@@ -13,7 +13,8 @@ public class Bloodlust : MonoBehaviour, ISkills
 
     public CharacterAnimManager characterAnim;
     public LegAnimManager legAnim;
-    public GunAnimation gunAnim;
+    public GunAnimation gunAnim; 
+    public HorseshoeAnim horseshoeAnim;
 
     private bool isActivated;
     private bool isOnCooldown;

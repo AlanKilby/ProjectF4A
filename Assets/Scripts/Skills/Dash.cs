@@ -13,6 +13,7 @@ public class Dash : MonoBehaviour, ISkills
     public CharacterAnimManager characterAnim;
     public LegAnimManager legAnim;
     public GunAnimation gunAnim;
+    
 
     float verticalDirection;
     float horizontalDirection;
@@ -84,6 +85,7 @@ public class Dash : MonoBehaviour, ISkills
         healthScript.canBeHit = false;
 
         yield return new WaitForSeconds(t);
+
 
         // Unlock Anim
         characterAnim.canChangeAnim = true;

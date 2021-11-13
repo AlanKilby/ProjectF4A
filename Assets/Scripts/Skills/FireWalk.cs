@@ -13,7 +13,8 @@ public class FireWalk : MonoBehaviour, ISkills
 
     public CharacterAnimManager characterAnim;
     public LegAnimManager legAnim;
-    public GunAnimation gunAnim;
+    public GunAnimation gunAnim; 
+    public HorseshoeAnim horseshoeAnim;
 
     private PhotonView view;
 
@@ -77,6 +78,8 @@ public class FireWalk : MonoBehaviour, ISkills
         damageZone.SetActive(true);
 
         yield return new WaitForSeconds(t);
+
+
 
         // Player movement speed back to normal
         playerMovementController.speedMultiplier = oldSpeedM;
