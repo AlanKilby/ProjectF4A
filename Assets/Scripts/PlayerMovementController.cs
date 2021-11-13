@@ -6,20 +6,24 @@ public class PlayerMovementController : MonoBehaviour
 
     [SerializeField] private Character character;
 
+    [HideInInspector]public float speedMultiplier;
+
     private PhotonView view;
 
-    private bool canMove = true;
+    public bool canMove;
 
     private void Start()
     {
         view = transform.GetComponent<PhotonView>();
+        speedMultiplier = 1;
+        canMove = true;
     }
 
     private void FixedUpdate()
     {
         if (view.IsMine && canMove)
         {
-            rb.velocity = (Input.GetAxis("Vertical") * Vector3.forward+ Input.GetAxis("Horizontal") * Vector3.right).normalized * character.speed;
+            rb.velocity = (Input.GetAxis("Vertical") * Vector3.forward+ Input.GetAxis("Horizontal") * Vector3.right).normalized * character.speed * speedMultiplier;
         }
     }
 

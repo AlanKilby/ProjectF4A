@@ -15,19 +15,26 @@ public class Health : MonoBehaviour
 
     private MeshRenderer meshRenderer;
 
+    public bool canBeHit;
 
     private void Start()
     {
         view = transform.GetComponent<PhotonView>();
         meshRenderer = transform.GetComponent<MeshRenderer>();
         possibleSpawns = Spawner.instance.GetPossibleSpawns();
+        canBeHit = true;
     }
 
     public void TakeDamage(int damage) 
     {
-        character.TakeDamage(damage);
-        CheckIsDead();
+        if (canBeHit)
+        {
+            character.TakeDamage(damage);
+            CheckIsDead();
+        }
+        
     }
+    
 
     private void CheckIsDead() 
     {
