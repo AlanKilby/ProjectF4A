@@ -10,6 +10,8 @@ public class Dash : MonoBehaviour, ISkills
     [SerializeField] Health healthScript;
     [SerializeField] private PlayerMovementController playerMovementController;
 
+    float verticalDirection;
+    float horizontalDirection;
 
     private bool isActivated;
     private bool isOnCooldown;
@@ -18,6 +20,15 @@ public class Dash : MonoBehaviour, ISkills
         isOnCooldown = false;
         isActivated = false;
         playerMovementController = GetComponent<PlayerMovementController>();
+    }
+
+    private void Update()
+    {
+        if(Input.GetAxisRaw("Vertical") != 0)
+            verticalDirection = Input.GetAxisRaw("Vertical");
+
+        if(Input.GetAxisRaw("Horizontal") != 0)
+            horizontalDirection = Input.GetAxisRaw("Horizontal");
     }
     public void ActivateSkill()
     {
@@ -49,17 +60,15 @@ public class Dash : MonoBehaviour, ISkills
     {
         isActivated = true;
 
-        float verticalDirection;
-        float horizontalDirection;
+        
 
         // Block player movement and get current direction
-        verticalDirection = Input.GetAxisRaw("vertical");
-        horizontalDirection = Input.GetAxisRaw("horizontal");
-        playerMovementController.canMove = false;
+        
+        playerMovementController.SetCanMove(false);
 
         // Dash Movement
         Rigidbody playerRB = GetComponent<Rigidbody>();
-        playerRB.AddForce((Vector3.forward * verticalDirection * dashSpeed) + (Vector3.right * horizontalDirection * dashSpeed), ForceMode.Impulse);
+        playerRB.AddForce((Vector3.forward * verticalDirection * dashSpeed) + (Vector3.right * horizontalDirection * dashSpeed), ForceMode.VelocityChange);
 
         // Deactivate collider for invulnerability
         healthScript.canBeHit = false;
@@ -67,6 +76,7 @@ public class Dash : MonoBehaviour, ISkills
         yield return new WaitForSeconds(t);
 
         // Player movement speed back to normal
+        playerRB.velocity = Vector3.zero;
         playerMovementController.canMove = true;
         healthScript.canBeHit = true;
 
