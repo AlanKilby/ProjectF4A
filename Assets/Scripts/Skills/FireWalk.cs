@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class FireWalk : MonoBehaviour, ISkills
 {
@@ -10,11 +11,16 @@ public class FireWalk : MonoBehaviour, ISkills
     [SerializeField] private PlayerMovementController playerMovementController;
     [SerializeField] private GameObject damageZone;
 
+    private PhotonView view;
+
+
 
     private bool isActivated;
     private bool isOnCooldown;
     void Start()
     {
+        view = transform.GetComponent<PhotonView>();
+
         isOnCooldown = false;
         isActivated = false;
         damageZone.SetActive(false);
@@ -22,7 +28,7 @@ public class FireWalk : MonoBehaviour, ISkills
     }
     public void ActivateSkill()
     {
-        StartCoroutine(ActivateSkillCoroutine(timeUnderSkillEffect));
+        view.RPC("ActivateSkillRPC", RpcTarget.All);
         StartCoroutine(CooldownCoroutine(cooldown));
     }
 
@@ -42,6 +48,12 @@ public class FireWalk : MonoBehaviour, ISkills
         yield return new WaitForSeconds(t);
 
         isOnCooldown = false;
+    }
+
+    [PunRPC]
+    public void ActivateSkillRPC() 
+    {
+        StartCoroutine(ActivateSkillCoroutine(timeUnderSkillEffect));
     }
 
     IEnumerator ActivateSkillCoroutine(float t)
