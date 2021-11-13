@@ -12,6 +12,8 @@ public class Pooler : MonoBehaviour
 
     [SerializeField] private List<PoolKey> poolKeys = new List<PoolKey>();
 
+    private PhotonView view;
+
     [System.Serializable]
     public class Pool
     {
@@ -33,6 +35,8 @@ public class Pooler : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        view = transform.GetComponent<PhotonView>();
 
         InitPools();
         PopulatePools();
@@ -114,12 +118,27 @@ public class Pooler : MonoBehaviour
         return objectInstance;
     }
 
+    private string keyRPC;
+    private GameObject goRPC;
+    private Rigidbody rbRPC;
+    
+
     public void Depop(string key, GameObject go, Rigidbody rb)
     {
-        pools[key].queue.Enqueue(go);
-        go.transform.parent = transform;
-        rb.velocity = Vector3.zero;
-        go.SetActive(false);
+        keyRPC = key;
+        goRPC = go;
+        rbRPC = rb;
+
+        view.RPC("DepopRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void DepopRPC() 
+    {
+        pools[keyRPC].queue.Enqueue(goRPC);
+        goRPC.transform.parent = transform;
+        rbRPC.velocity = Vector3.zero;
+        goRPC.SetActive(false);
     }
 
     public void DelayedDepop(float t, string key, GameObject go, Rigidbody rb)
