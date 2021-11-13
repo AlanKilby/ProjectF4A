@@ -18,5 +18,6 @@ public class CameraFollowPlayer : MonoBehaviour
         this.player = player;
         transform.GetComponent<CinemachineBrain>().ActiveVirtualCamera.Follow = player;
         player.GetComponent<Shoot>().SetCamera(transform.GetComponent<Camera>());
+        transform.GetComponent<CinemachineBrain>().ActiveVirtualCamera.LookAt = player;
     }
 }
