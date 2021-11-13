@@ -9,6 +9,7 @@ public class CharacterCreation : MonoBehaviour
     [SerializeField] private TMP_InputField playerNameInput;
 
     [SerializeField] private GameObject characterSelectionMenu;
+    [SerializeField] private GameObject mainMenu;
 
     [SerializeField] private Spawner spawner;
 
@@ -43,6 +44,7 @@ public class CharacterCreation : MonoBehaviour
     private void CloseCharacterSelection() 
     {
         characterSelectionMenu.SetActive(false);
+        transform.GetComponent<MainMenuManager>().SetCanOpenMainMenu(true);
     }
 
 }
