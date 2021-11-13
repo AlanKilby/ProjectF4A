@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: spining annim
+  m_Name: invisible
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -45,7 +45,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 2100000, guid: 15299cd16e341bf4ea0dcda2b7a64a89, type: 2}
+      value: {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
     attribute: m_Materials.Array.data[0]
     path: 
     classID: 23
@@ -72,7 +72,7 @@ AnimationClip:
       customType: 21
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2100000, guid: 15299cd16e341bf4ea0dcda2b7a64a89, type: 2}
+    - {fileID: 2100000, guid: 2ffbae9573ad395449dc51c259bf408d, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 1860418763984530642}
   - component: {fileID: 4482627867436652568}
   - component: {fileID: 2681192345574816202}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "fer \xE0 cheval"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
