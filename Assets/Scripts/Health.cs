@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
     private void Start()
     {
         view = transform.GetComponent<PhotonView>();
-        meshRenderer = transform.GetComponent<MeshRenderer>();
+        //meshRenderer = transform.GetComponent<MeshRenderer>();
         possibleSpawns = Spawner.instance.GetPossibleSpawns();
         canBeHit = true;
     }
@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
     {
         //view.RPC("ResetHp", RpcTarget.All);
         character.ResetHp();
-        meshRenderer.enabled = false;
+        //meshRenderer.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false); // l'arme du joueur
 
         transform.position = SelectRandomSpawn();
@@ -74,7 +74,7 @@ public class Health : MonoBehaviour
         //view.RPC("ResetHP", RpcTarget.All);
         character.ResetHp();
         transform.GetChild(0).gameObject.SetActive(true);
-        meshRenderer.enabled = true;
+        //meshRenderer.enabled = true;
     }
 
     private int rand;

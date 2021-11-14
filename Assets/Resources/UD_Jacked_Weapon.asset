@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UD_Jacked_Weapon
   m_EditorClassIdentifier: 
   weaponName: UD_Jacked_Weapon
-  damage: 30
+  damage: 45
   magazine: 1
   magazineSizeMax: 1
   reloadTime: 0.4
@@ -25,4 +25,4 @@ MonoBehaviour:
   isShotgun: 0
   deviation: 0
   mesh: {fileID: 4300030, guid: 1ec55baed88ac07429a52bee4c519015, type: 3}
-  bulletPrefab: {fileID: 3334045324643100983, guid: 504439d2946002d498f1b057324b3fe5, type: 3}
+  bulletPrefab: {fileID: 5775993873921989785, guid: 6369416beeb265a4b81f9479911fffb2, type: 3}

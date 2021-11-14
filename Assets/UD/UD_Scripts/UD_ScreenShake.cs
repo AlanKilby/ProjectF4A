@@ -31,10 +31,7 @@ public class UD_ScreenShake : MonoBehaviour
     void Update()
     {
         // TODO: Replace with your trigger
-        if (Input.GetKey(KeyCode.W))
-        {
-            StartShake();
-        }
+       
 
         // If the Cinemachine componet is not set, avoid update
         if (VirtualCamera != null && virtualCameraNoise != null)
