@@ -20,11 +20,11 @@ public class PickUp : MonoBehaviour
 
             if (isHeal)
             {
-                other.GetComponent<CharacterDisplay>().GetCharacter().hp += HPValue;
+                other.GetComponent<CharacterDisplay>().hp += HPValue;
             }
             else
             {
-                other.GetComponent<CharacterDisplay>().GetCharacter().ultimate += ultValue;
+                other.GetComponent<CharacterDisplay>().ultimate += ultValue;
             }
 
             Destroy(gameObject);

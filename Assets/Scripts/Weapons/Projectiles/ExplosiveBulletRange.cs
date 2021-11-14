@@ -24,7 +24,7 @@ public class ExplosiveBulletRange : MonoBehaviour
         {
             if (view.IsMine)
             {
-                Instantiate(explosion, transform.position, Quaternion.identity);
+                PhotonNetwork.Instantiate(explosion.name, transform.position, Quaternion.identity);
                 PhotonNetwork.Destroy(view);
             }
         }

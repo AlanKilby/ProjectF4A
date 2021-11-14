@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform weaponTransform;
     private Weapon weapon;
+    [SerializeField] private WeaponDisplay weaponDisplay;
 
     private GameObject bullet;
     private Transform bulletGroup;
@@ -39,7 +40,7 @@ public class Shoot : MonoBehaviourPunCallbacks
         shake = GetComponent<UD_ScreenShake>();
 
         weapon = weaponTransform.GetComponent<WeaponDisplay>().GetWeapon();
-        weapon.ReloadEntireMagazine();
+        weaponDisplay.ReloadEntireMagazine();
 
         canFire = true;
         isReloading = false;
@@ -53,11 +54,11 @@ public class Shoot : MonoBehaviourPunCallbacks
         {
 
             CalculateMouseWorldPosition();
-            if (Input.GetAxis("Fire1") > 0 && canFire && weapon.HasAmmo())
+            if (Input.GetAxis("Fire1") > 0 && canFire && weaponDisplay.HasAmmo())
             {
                 Fire();
             }
-            else if ((Input.GetAxis("Fire2") > 0 || !weapon.HasAmmo()) && !isReloading)
+            else if ((Input.GetAxis("Fire2") > 0 || !weaponDisplay.HasAmmo()) && !isReloading)
             {
                 Reload();
             }
@@ -70,14 +71,14 @@ public class Shoot : MonoBehaviourPunCallbacks
     public void UpdateUI() 
     {
         if(view.IsMine)
-            magazineUI.text = weapon.name + " : " + weapon.magazine + " / " + weapon.magazineSizeMax;
+            magazineUI.text = weapon.name + " : " + weaponDisplay.magazine + " / " + weapon.magazineSizeMax;
     }
 
     private void Fire()
     {
         shake.StartShake();
 
-        weapon.UpdateMagazine();
+        weaponDisplay.UpdateMagazine();
         UpdateUI();
 
         gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.FIRE);
@@ -155,7 +156,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
         canFire = true;
         isReloading = false;
-        weapon.ReloadEntireMagazine();
+        weaponDisplay.ReloadEntireMagazine();
         UpdateUI();
     }
 

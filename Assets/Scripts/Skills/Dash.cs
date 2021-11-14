@@ -10,6 +10,7 @@ public class Dash : MonoBehaviour, ISkills
     [SerializeField] Health healthScript;
     [SerializeField] private PlayerMovementController playerMovementController;
     [SerializeField] private Character character;
+    [SerializeField] private CharacterDisplay characterDisplay;
 
     public CharacterAnimManager characterAnim;
     public LegAnimManager legAnim;
@@ -36,6 +37,7 @@ public class Dash : MonoBehaviour, ISkills
     }
     public void ActivateSkill()
     {
+        characterDisplay.ultimate = 0;
         StartCoroutine(ActivateSkillCoroutine(dashTime));
         StartCoroutine(CooldownCoroutine());
     }
@@ -57,14 +59,14 @@ public class Dash : MonoBehaviour, ISkills
 
         yield return new WaitForSeconds(0.5f);
 
-        if (character.ultimate >= character.ultimateMaxValue)
+        if (characterDisplay.ultimate >= character.ultimateMaxValue)
         {
             isOnCooldown = false;
-            character.ultimate = character.ultimateMaxValue;
+            characterDisplay.ultimate = character.ultimateMaxValue;
         }
         else
         {
-            character.ultimate += character.ultimateRechargeRate * 0.5f;
+            characterDisplay.ultimate += character.ultimateRechargeRate * 0.5f;
             StartCoroutine(CooldownCoroutine());
         }
     }

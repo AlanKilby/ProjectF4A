@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 7978732728811157229}
+  weaponDisplay: {fileID: 4580665128693311454}
   camera: {fileID: 0}
   magazineUI: {fileID: 8925222859217324348}
   gunAnim: {fileID: 4262360762706119875}
@@ -289,6 +290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: b1b2992f62ec75c4fbe0c2774ced1402, type: 2}
+  hp: 0
+  ultimate: 0
 --- !u!114 &1697138332434059168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,9 +304,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37425bcec70ae18418b366ec767ea2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: b1b2992f62ec75c4fbe0c2774ced1402, type: 2}
+  character: {fileID: 4375560514162197838}
   possibleSpawns: []
   canBeHit: 0
+  deathExplosion: {fileID: 7541397955138072870, guid: f192da9000aae3a4eaef6f173f0828b3, type: 3}
 --- !u!114 &1359292960704551926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +336,8 @@ MonoBehaviour:
   speedMultiplier: 2
   playerMovementController: {fileID: 7444063327127672353}
   damageZone: {fileID: 1087584037238129753}
-  character: {fileID: 0}
+  character: {fileID: 11400000, guid: b1b2992f62ec75c4fbe0c2774ced1402, type: 2}
+  characterDisplay: {fileID: 4375560514162197838}
   characterAnim: {fileID: 3919082171960131053}
   legAnim: {fileID: 8832389301230504175}
   gunAnim: {fileID: 4262360762706119875}
@@ -474,6 +479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 21bc233be9c045b40b09dc42c14c4148, type: 2}
+  magazine: 0
+  bulletsPerShot: 0
 --- !u!1 &8925222859217324354
 GameObject:
   m_ObjectHideFlags: 0

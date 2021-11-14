@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private Character character;
+    [SerializeField] private CharacterDisplay character;
 
     private GameObject damagedBy;
 
@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
     private MeshRenderer meshRenderer;
 
     public bool canBeHit;
+
+    public GameObject deathExplosion;
 
     private void Start()
     {
@@ -41,6 +43,7 @@ public class Health : MonoBehaviour
     {
         if (character.IsDead()) 
         {
+            PhotonNetwork.Instantiate(deathExplosion.name, transform.position, Quaternion.identity);
             view.RPC("TeleportPlayer", RpcTarget.All);
             damagedByCharacter = damagedBy.GetComponent<CharacterDisplay>().GetCharacter();
             ScoreManager.instance.transform.GetComponent<PhotonView>().RPC("AddPoint", RpcTarget.All, damagedBy.GetComponent<CharacterDisplay>().GetPlayerName());

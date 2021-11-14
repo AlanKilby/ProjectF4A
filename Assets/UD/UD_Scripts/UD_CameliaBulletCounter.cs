@@ -8,6 +8,7 @@ public class UD_CameliaBulletCounter : MonoBehaviour
 {
     public GameObject[] ammoImage;
     public Weapon weapon;
+    public WeaponDisplay weaponDisplay;
 
     private PhotonView view;
 
@@ -22,7 +23,7 @@ public class UD_CameliaBulletCounter : MonoBehaviour
         {
             for (int i = 0; i <= weapon.magazineSizeMax; i++)
             {
-                if (i >= weapon.magazine)
+                if (i >= weaponDisplay.magazine)
                 {
                     ammoImage[i].SetActive(false);
                 }

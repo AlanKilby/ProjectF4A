@@ -8,8 +8,11 @@ public class Bloodlust : MonoBehaviour, ISkills
     [SerializeField] private float timeUnderSkillEffect;
     [SerializeField] private Shoot shootScript;
     [SerializeField] private Character character;
+    [SerializeField] private CharacterDisplay characterDisplay;
 
     private Weapon weapon;
+    [SerializeField] private WeaponDisplay weaponDisplay;
+
     private int InitialBulletPerShot;
 
     public CharacterAnimManager characterAnim;
@@ -22,7 +25,7 @@ public class Bloodlust : MonoBehaviour, ISkills
 
     public void ActivateSkill()
     {
-        character.ultimate = 0;
+        characterDisplay.ultimate = 0;
         StartCoroutine(ActivateSkillCoroutine(timeUnderSkillEffect));
         Debug.Log("StartCooldown");
         StartCoroutine(CooldownCoroutine());
@@ -42,8 +45,8 @@ public class Bloodlust : MonoBehaviour, ISkills
     {
         isActivated = true;
 
-        weapon.ReloadEntireMagazine();
-        weapon.bulletsPerShot = 0;
+        weaponDisplay.ReloadEntireMagazine();
+        weaponDisplay.bulletsPerShot = 0;
 
         shootScript.UpdateUI();
 
@@ -64,27 +67,26 @@ public class Bloodlust : MonoBehaviour, ISkills
         gunAnim.canChangeAnim = true;
         legAnim.canChangeAnim = true;
 
-        weapon.bulletsPerShot = InitialBulletPerShot;
+        weaponDisplay.bulletsPerShot = InitialBulletPerShot;
 
         isActivated = false;
     }
 
     IEnumerator CooldownCoroutine() 
     {
-        Debug.Log("ultimate : " + character.ultimate);
         isOnCooldown = true;
 
         yield return new WaitForSeconds(0.5f);
 
-        if (character.ultimate >= character.ultimateMaxValue)
+        if (characterDisplay.ultimate >= character.ultimateMaxValue)
         {
             Debug.Log("Cooldown finished");
             isOnCooldown = false;
-            character.ultimate = character.ultimateMaxValue;
+            characterDisplay.ultimate = character.ultimateMaxValue;
         }
         else
         {
-            character.ultimate += character.ultimateRechargeRate * 0.5f;
+            characterDisplay.ultimate += character.ultimateRechargeRate * 0.5f;
             StartCoroutine(CooldownCoroutine());
         }
     }
@@ -95,6 +97,6 @@ public class Bloodlust : MonoBehaviour, ISkills
         isOnCooldown = false;
         isActivated = false;
         weapon = transform.GetChild(0).GetComponent<WeaponDisplay>().GetWeapon();
-        InitialBulletPerShot = weapon.bulletsPerShot;
+        InitialBulletPerShot = weaponDisplay.bulletsPerShot;
     }
 }
