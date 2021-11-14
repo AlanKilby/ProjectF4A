@@ -22,7 +22,7 @@ public class UD_CameliaBulletCounter : MonoBehaviour
         {
             for (int i = 0; i <= weapon.magazineSizeMax; i++)
             {
-                if (i > weapon.magazine)
+                if (i >= weapon.magazine)
                 {
                     ammoImage[i].SetActive(false);
                 }
