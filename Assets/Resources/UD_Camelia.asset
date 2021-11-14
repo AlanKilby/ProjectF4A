@@ -16,5 +16,8 @@ MonoBehaviour:
   hp: 110
   maxHp: 110
   speed: 6
-  ultimate: 4
+  ultimateMaxValue: 100
+  ultimate: 0
+  ultimateRechargeRate: 1.714
+  ultimateRechargeOnKill: 20
   mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}

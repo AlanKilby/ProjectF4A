@@ -30,9 +30,13 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     private PhotonView view;
 
+    private UD_ScreenShake shake;
+
     private void Start()
     {
         view = transform.GetComponent<PhotonView>();
+
+        shake = GetComponent<UD_ScreenShake>();
 
         weapon = weaponTransform.GetComponent<WeaponDisplay>().GetWeapon();
         weapon.ReloadEntireMagazine();
@@ -71,14 +75,16 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     private void Fire()
     {
+        shake.StartShake();
+
         weapon.UpdateMagazine();
         UpdateUI();
 
-        gunAnim.ChangeGunAnimationState(gunAnim.FIRE);
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.FIRE);
 
         StartCoroutine(CooldownFireRateCoroutine(weapon.fireRate));
 
-        CreateBullet();
+        findWeaponType();
     }
 
     IEnumerator CooldownFireRateCoroutine(float t)
@@ -87,18 +93,37 @@ public class Shoot : MonoBehaviourPunCallbacks
 
         yield return new WaitForSeconds(t);
 
-        gunAnim.ChangeGunAnimationState(gunAnim.IDLE);
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.IDLE);
 
         canFire = true;
     }
 
-    private void CreateBullet()
+    private float currentDeviation;
+
+    private void findWeaponType() 
     {
-        CalculateShotDirection();
+        if (weapon.isShotgun)
+        {
+            currentDeviation = -weapon.deviation;
+            for (int i = 0; i < 3; i++)
+            {
+                Debug.Log("shotgun entered");
+                CreateBullet(currentDeviation);
+                currentDeviation += weapon.deviation;
+            }
+        }
+        else
+        {
+            CreateBullet(0);
+        }
+    }
+
+    private void CreateBullet(float deviation)
+    {
+        CalculateShotDirection(deviation);
 
         bullet = Pooler.instance.Pop("Bullet");
-        bullet.transform.position = weaponTransform.position + weaponTransform.forward;
-        //bullet = PhotonNetwork.Instantiate(weapon.bulletPrefab.name, weaponTransform.position + weaponTransform.forward, Quaternion.identity);
+        bullet.transform.position = weaponTransform.position + weaponTransform.forward + weaponTransform.right * deviation * 0.04f;
         rb = bullet.GetComponent<Rigidbody>();
 
         bulletRange = bullet.GetComponent<CalculateBulletRange>();
@@ -126,7 +151,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
 
         yield return new WaitForSeconds(t);
-        gunAnim.ChangeGunAnimationState(gunAnim.IDLE);
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.IDLE);
 
         canFire = true;
         isReloading = false;
@@ -134,9 +159,9 @@ public class Shoot : MonoBehaviourPunCallbacks
         UpdateUI();
     }
 
-    private void CalculateShotDirection() 
+    private void CalculateShotDirection(float deviation) 
     {
-        shotDirection = (mouseWorldPosition - weaponTransform.TransformPoint(Vector3.forward)).normalized;
+        shotDirection = Quaternion.Euler(0, deviation, 0) * (mouseWorldPosition - weaponTransform.TransformPoint(Vector3.forward)).normalized;
     }
 
     private Ray ray;

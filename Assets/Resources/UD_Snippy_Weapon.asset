@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: UD_Snippy_Weapon
   m_EditorClassIdentifier: 
   weaponName: UD_Jacked_Weapon
-  damage: 20
-  magazine: 1
-  magazineSizeMax: 1
-  reloadTime: 0.25
-  numberBulletReload: 1
-  range: 15
-  fireRate: 0.25
+  damage: 30
+  magazine: 2
+  magazineSizeMax: 3
+  reloadTime: 0.5
+  numberBulletReload: 3
+  range: 10
+  fireRate: 0.5
   bulletsPerShot: 1
   bulletSpeed: 23
+  isShotgun: 1
+  deviation: 8
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  bulletPrefab: {fileID: 3334045324643100983, guid: 504439d2946002d498f1b057324b3fe5, type: 3}
+  bulletPrefab: {fileID: 5775993873921989785, guid: 6369416beeb265a4b81f9479911fffb2, type: 3}

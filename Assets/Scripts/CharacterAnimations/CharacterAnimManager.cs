@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class CharacterAnimManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class CharacterAnimManager : MonoBehaviour
     {
         canChangeAnim = true;
     }
+
+    [PunRPC]
     public void ChangeAnimationState(string newState)
     {
         if (canChangeAnim)

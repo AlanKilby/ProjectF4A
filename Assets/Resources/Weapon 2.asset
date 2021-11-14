@@ -22,5 +22,7 @@ MonoBehaviour:
   fireRate: 0.2
   bulletsPerShot: 1
   bulletSpeed: 10
+  isShotgun: 1
+  deviation: 45
   mesh: {fileID: 4300030, guid: 1ec55baed88ac07429a52bee4c519015, type: 3}
   bulletPrefab: {fileID: 3334045324643100983, guid: 504439d2946002d498f1b057324b3fe5, type: 3}
