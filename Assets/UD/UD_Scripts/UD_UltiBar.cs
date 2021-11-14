@@ -15,7 +15,7 @@ public class UD_UltiBar : MonoBehaviour
     void Start()
     {
         ultiBar = GetComponent<Image>();
-        ultiBar.fillAmount = 1.0f;
+        ultiBar.fillAmount = 0.0f;
     }
 
 
