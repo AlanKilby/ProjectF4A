@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
-  HPValue: 5
+  HPValue: 75
   ultValue: 0
   isHeal: 1
 --- !u!1001 &8272528654784345237

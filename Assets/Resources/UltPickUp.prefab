@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
   HPValue: 0
-  ultValue: 5
+  ultValue: 50
   isHeal: 0
 --- !u!1001 &4706574442966743557
 PrefabInstance:
