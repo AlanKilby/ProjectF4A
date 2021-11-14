@@ -5,12 +5,10 @@ using TMPro;
 
 public class UD_NameDisplay : MonoBehaviour
 {
-    public CharacterDisplay CD;
+    public TMP_Text playerNameText;
 
-    private TMP_Text playerNameText;
-
-    private void Start()
+    public void DisplayName(string playerNameData)
     {
-        playerNameText.text = CD.GetPlayerName();
+        playerNameText.text = playerNameData;
     }
 }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75095671453f5af47a120b8c7a2eb5e9, type: 3}
+  m_Name: UD_Camelia_Weapon
+  m_EditorClassIdentifier: 
+  weaponName: UD_Camelia_Weapon
+  damage: 25
+  magazine: 6
+  magazineSizeMax: 6
+  reloadTime: 0.75
+  numberBulletReload: 6
+  range: 25
+  fireRate: 0.175
+  bulletsPerShot: 1
+  bulletSpeed: 28
+  mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  bulletPrefab: {fileID: 5775993873921989785, guid: 6369416beeb265a4b81f9479911fffb2, type: 3}

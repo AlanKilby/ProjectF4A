@@ -40,6 +40,7 @@ public class Spawner : MonoBehaviour
         spawnPos = possibleSpawns[rand];
         player = PhotonNetwork.Instantiate(playerPrefabs[chosenCharacter].name, spawnPos, Quaternion.identity);
         player.GetComponent<CharacterDisplay>().SetPlayerName(playerName);
+        player.GetComponent<UD_NameDisplay>().DisplayName(playerName);
 
         gameManager.SetPlayer(player);
 

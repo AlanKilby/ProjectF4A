@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 2555062149293414572}
   - component: {fileID: -8345138819912771136}
   - component: {fileID: -6474706696257434374}
+  - component: {fileID: 8397159635146853354}
   m_Layer: 0
   m_Name: UD_Camelia
   m_TagString: Player
@@ -275,6 +276,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5722ee6397f7b924e9905e7fa403bf1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8397159635146853354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870706349301637177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 396a8f6bd1678114eae9097e4cedad13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNameText: {fileID: 5625821136979849276}
 --- !u!1 &3705208098635850187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,3 +1119,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3451385518344161836, guid: 1675be4947811994381d35894b6f71d5, type: 3}
   m_PrefabInstance: {fileID: 6262753347787528721}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5625821136979849276 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1800079176943987245, guid: 1675be4947811994381d35894b6f71d5, type: 3}
+  m_PrefabInstance: {fileID: 6262753347787528721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
