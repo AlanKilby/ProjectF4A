@@ -18,6 +18,6 @@ MonoBehaviour:
   speed: 6
   ultimateMaxValue: 100
   ultimate: 0
-  ultimateRechargeRate: 1.714
+  ultimateRechargeRate: 2.857
   ultimateRechargeOnKill: 20
   mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
