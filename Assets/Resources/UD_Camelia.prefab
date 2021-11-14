@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1284,14 +1284,14 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3338467709454947065, guid: d9fe87ce28cb57d41ac503b1a783ba28, type: 3}
   m_PrefabInstance: {fileID: 4900113128291793652}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2062989439082327491 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6386534297979655991, guid: d9fe87ce28cb57d41ac503b1a783ba28, type: 3}
-  m_PrefabInstance: {fileID: 4900113128291793652}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &2062989439082327490 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6386534297979655990, guid: d9fe87ce28cb57d41ac503b1a783ba28, type: 3}
+  m_PrefabInstance: {fileID: 4900113128291793652}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2062989439082327491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6386534297979655991, guid: d9fe87ce28cb57d41ac503b1a783ba28, type: 3}
   m_PrefabInstance: {fileID: 4900113128291793652}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &655811223215909339 stripped
