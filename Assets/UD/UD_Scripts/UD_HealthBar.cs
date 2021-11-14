@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class UD_HealthBar : MonoBehaviour
 {
@@ -28,6 +29,6 @@ public class UD_HealthBar : MonoBehaviour
     private void CalculateAmount()
     {
         //currentAmount = ch.hp / ch.maxHp;
-        currentAmount = CD.GetCharacter().hp / CD.GetCharacter().maxHp;
+        currentAmount = CD.hp / CD.GetCharacter().maxHp;
     }
 }

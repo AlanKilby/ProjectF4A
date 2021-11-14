@@ -15,7 +15,6 @@ public class Dash : MonoBehaviour, ISkills
     public CharacterAnimManager characterAnim;
     public LegAnimManager legAnim;
     public GunAnimation gunAnim;
-    
 
     float verticalDirection;
     float horizontalDirection;
