@@ -9,6 +9,7 @@ public class UD_CameliaBulletCounter : MonoBehaviour
     public GameObject[] ammoImage;
     public Weapon weapon;
     public WeaponDisplay weaponDisplay;
+    public GameObject barrel;
 
     private PhotonView view;
 
@@ -32,6 +33,10 @@ public class UD_CameliaBulletCounter : MonoBehaviour
                     ammoImage[i].SetActive(true);
                 }
             }
+        }
+        else
+        {
+            barrel.SetActive(false);
         }
     }
 }
