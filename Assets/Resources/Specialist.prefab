@@ -305,7 +305,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 4375560514162197838}
-  possibleSpawns: []
+  possibleSpawns:
+  - {x: -6, y: 1.5, z: 145}
+  - {x: 14, y: 1.5, z: 139}
+  - {x: 25, y: 1.5, z: 105}
+  - {x: -4.5, y: 1.5, z: 68}
+  - {x: 22, y: 1.5, z: 38}
+  - {x: 2, y: 1.5, z: -38}
+  - {x: 25, y: 1.5, z: -80}
+  - {x: -60, y: 1.5, z: -66}
+  - {x: -24, y: 1.5, z: -30}
+  - {x: -72, y: 1.5, z: -11}
+  - {x: -113, y: 1.5, z: 11.5}
+  - {x: -125, y: 1.5, z: -45}
+  - {x: -103, y: 1.5, z: -84}
+  - {x: -131, y: 1.5, z: -134}
+  - {x: -94, y: 1.5, z: -140}
   canBeHit: 0
   deathExplosion: {fileID: 7541397955138072870, guid: f192da9000aae3a4eaef6f173f0828b3, type: 3}
 --- !u!114 &1359292960704551926
