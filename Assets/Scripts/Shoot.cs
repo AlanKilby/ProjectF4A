@@ -26,6 +26,8 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     [SerializeField] private TMP_Text magazineUI;
 
+    [SerializeField] private GunAnimation gunAnim;
+
     private PhotonView view;
 
     private void Start()
@@ -33,6 +35,7 @@ public class Shoot : MonoBehaviourPunCallbacks
         view = transform.GetComponent<PhotonView>();
 
         weapon = weaponTransform.GetComponent<WeaponDisplay>().GetWeapon();
+        weapon.ReloadEntireMagazine();
 
         canFire = true;
         isReloading = false;
@@ -44,6 +47,8 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         if (view.IsMine)
         {
+
+            CalculateMouseWorldPosition();
             if (Input.GetAxis("Fire1") > 0 && canFire && weapon.HasAmmo())
             {
                 Fire();
@@ -52,19 +57,24 @@ public class Shoot : MonoBehaviourPunCallbacks
             {
                 Reload();
             }
-        }
 
+            LookAt();
+
+        }
     }
 
-    private void UpdateUI() 
+    public void UpdateUI() 
     {
-        magazineUI.text = weapon.name + " : " + weapon.magazine + " / " + weapon.magazineSizeMax;
+        if(view.IsMine)
+            magazineUI.text = weapon.name + " : " + weapon.magazine + " / " + weapon.magazineSizeMax;
     }
 
     private void Fire()
     {
         weapon.UpdateMagazine();
         UpdateUI();
+
+        gunAnim.ChangeGunAnimationState(gunAnim.FIRE);
 
         StartCoroutine(CooldownFireRateCoroutine(weapon.fireRate));
 
@@ -77,6 +87,8 @@ public class Shoot : MonoBehaviourPunCallbacks
 
         yield return new WaitForSeconds(t);
 
+        gunAnim.ChangeGunAnimationState(gunAnim.IDLE);
+
         canFire = true;
     }
 
@@ -84,7 +96,9 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         CalculateShotDirection();
 
-        bullet = PhotonNetwork.Instantiate(weapon.bulletPrefab.name, weaponTransform.position + weaponTransform.forward, Quaternion.identity);
+        bullet = Pooler.instance.Pop("Bullet");
+        bullet.transform.position = weaponTransform.position + weaponTransform.forward;
+        //bullet = PhotonNetwork.Instantiate(weapon.bulletPrefab.name, weaponTransform.position + weaponTransform.forward, Quaternion.identity);
         rb = bullet.GetComponent<Rigidbody>();
 
         bulletRange = bullet.GetComponent<CalculateBulletRange>();
@@ -93,6 +107,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
         bulletDamage = bullet.GetComponent<DealDamage>();
         bulletDamage.SetDamage(weapon.damage);
+        bulletDamage.SetPlayer(transform.gameObject);
 
         rb.AddForce(shotDirection * weapon.bulletSpeed, ForceMode.Impulse);
     }
@@ -101,6 +116,7 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         StopAllCoroutines();
         StartCoroutine(ReloadCoroutine(weapon.reloadTime));
+        
     }
 
     IEnumerator ReloadCoroutine(float t) 
@@ -108,7 +124,9 @@ public class Shoot : MonoBehaviourPunCallbacks
         canFire = false;
         isReloading = true;
 
+
         yield return new WaitForSeconds(t);
+        gunAnim.ChangeGunAnimationState(gunAnim.IDLE);
 
         canFire = true;
         isReloading = false;
@@ -118,8 +136,6 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     private void CalculateShotDirection() 
     {
-        CalculateMouseWorldPosition();
-
         shotDirection = (mouseWorldPosition - weaponTransform.TransformPoint(Vector3.forward)).normalized;
     }
 
@@ -135,8 +151,18 @@ public class Shoot : MonoBehaviourPunCallbacks
         }
     }
 
+    private void LookAt() 
+    {
+        transform.LookAt(mouseWorldPosition);
+    }
+
     public void SetCamera(Camera camera) 
     {
         this.camera = camera;
+    }
+
+    public void SetCanFire(bool canFire)
+    {
+        this.canFire = canFire;
     }
 }

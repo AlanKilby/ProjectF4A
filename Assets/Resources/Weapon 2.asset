@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Weapon 2
   m_EditorClassIdentifier: 
   weaponName: weapon 2
-  damage: 0
-  magazine: 0
-  magazineSizeMax: 0
-  reloadTime: 0
-  range: 0
-  fireRate: 0
-  bulletsPerShot: 0
-  bulletSpeed: 0
-  mesh: {fileID: 4300022, guid: 09f4942833b61cf429ab5ae4addaacac, type: 3}
-  bulletPrefab: {fileID: 152888, guid: 5624ee9da9d10514ea7b808e83979c85, type: 3}
+  damage: 12
+  magazine: 8
+  magazineSizeMax: 20
+  reloadTime: 0.2
+  numberBulletReload: 20
+  range: 10
+  fireRate: 0.2
+  bulletsPerShot: 1
+  bulletSpeed: 10
+  mesh: {fileID: 4300030, guid: 1ec55baed88ac07429a52bee4c519015, type: 3}
+  bulletPrefab: {fileID: 3334045324643100983, guid: 504439d2946002d498f1b057324b3fe5, type: 3}
