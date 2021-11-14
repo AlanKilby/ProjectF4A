@@ -26,6 +26,8 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     [SerializeField] private TMP_Text magazineUI;
 
+    [SerializeField] private GunAnimation gunAnim;
+
     private PhotonView view;
 
     private void Start()
@@ -72,6 +74,8 @@ public class Shoot : MonoBehaviourPunCallbacks
         weapon.UpdateMagazine();
         UpdateUI();
 
+        gunAnim.ChangeGunAnimationState(gunAnim.FIRE);
+
         StartCoroutine(CooldownFireRateCoroutine(weapon.fireRate));
 
         CreateBullet();
@@ -82,6 +86,8 @@ public class Shoot : MonoBehaviourPunCallbacks
         canFire = false;
 
         yield return new WaitForSeconds(t);
+
+        gunAnim.ChangeGunAnimationState(gunAnim.IDLE);
 
         canFire = true;
     }
@@ -110,6 +116,7 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         StopAllCoroutines();
         StartCoroutine(ReloadCoroutine(weapon.reloadTime));
+        
     }
 
     IEnumerator ReloadCoroutine(float t) 
@@ -117,7 +124,9 @@ public class Shoot : MonoBehaviourPunCallbacks
         canFire = false;
         isReloading = true;
 
+
         yield return new WaitForSeconds(t);
+        gunAnim.ChangeGunAnimationState(gunAnim.IDLE);
 
         canFire = true;
         isReloading = false;

@@ -10,6 +10,11 @@ public class Dash : MonoBehaviour, ISkills
     [SerializeField] Health healthScript;
     [SerializeField] private PlayerMovementController playerMovementController;
 
+    public CharacterAnimManager characterAnim;
+    public LegAnimManager legAnim;
+    public GunAnimation gunAnim;
+    
+
     float verticalDirection;
     float horizontalDirection;
 
@@ -58,7 +63,15 @@ public class Dash : MonoBehaviour, ISkills
     {
         isActivated = true;
 
-        
+        // Animation
+        characterAnim.ChangeAnimationState(characterAnim.CHARACTER_SPECIAL);
+        gunAnim.ChangeGunAnimationState(gunAnim.SPECIAL);
+        legAnim.ChangeAnimationState(legAnim.SPECIAL);
+
+        // Lock Anim
+        characterAnim.canChangeAnim = false;
+        gunAnim.canChangeAnim = false;
+        legAnim.canChangeAnim = false;
 
         // Block player movement and get current direction
         
@@ -72,6 +85,12 @@ public class Dash : MonoBehaviour, ISkills
         healthScript.canBeHit = false;
 
         yield return new WaitForSeconds(t);
+
+
+        // Unlock Anim
+        characterAnim.canChangeAnim = true;
+        gunAnim.canChangeAnim = true;
+        legAnim.canChangeAnim = true;
 
         // Player movement speed back to normal
         playerRB.velocity = Vector3.zero;

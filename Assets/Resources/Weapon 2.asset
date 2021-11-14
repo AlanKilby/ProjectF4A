@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: weapon 2
   damage: 12
-  magazine: 1
-  magazineSizeMax: 1
+  magazine: 8
+  magazineSizeMax: 20
   reloadTime: 0.2
-  numberBulletReload: 0
-  range: 0
+  numberBulletReload: 20
+  range: 10
   fireRate: 0.2
   bulletsPerShot: 1
   bulletSpeed: 10

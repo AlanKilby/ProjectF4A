@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class DealDamage : MonoBehaviour
 {
-    private int damage;
+    [SerializeField] private int damage;
 
     private GameObject player;
     private Health damagedPlayerHealth;

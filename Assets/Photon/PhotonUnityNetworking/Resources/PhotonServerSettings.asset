@@ -51,6 +51,7 @@ MonoBehaviour:
   - Repawn
   - RespawnRPC
   - DepopRPC
+  - ActivateSkillRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
