@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Dash : MonoBehaviour, ISkills
 {
-    [SerializeField] private float cooldown;
     [SerializeField] private float dashTime;
     [SerializeField] private float dashSpeed;
     [SerializeField] Health healthScript;
     [SerializeField] private PlayerMovementController playerMovementController;
+    [SerializeField] private Character character;
 
     public CharacterAnimManager characterAnim;
     public LegAnimManager legAnim;
@@ -36,7 +37,7 @@ public class Dash : MonoBehaviour, ISkills
     public void ActivateSkill()
     {
         StartCoroutine(ActivateSkillCoroutine(dashTime));
-        StartCoroutine(CooldownCoroutine(cooldown));
+        StartCoroutine(CooldownCoroutine());
     }
 
     public bool IsActivated()
@@ -50,13 +51,22 @@ public class Dash : MonoBehaviour, ISkills
         return this.isOnCooldown;
     }
 
-    IEnumerator CooldownCoroutine(float t)
+    IEnumerator CooldownCoroutine()
     {
         isOnCooldown = true;
 
-        yield return new WaitForSeconds(t);
+        yield return new WaitForSeconds(0.5f);
 
-        isOnCooldown = false;
+        if (character.ultimate >= character.ultimateMaxValue)
+        {
+            isOnCooldown = false;
+            character.ultimate = character.ultimateMaxValue;
+        }
+        else
+        {
+            character.ultimate += character.ultimateRechargeRate * 0.5f;
+            StartCoroutine(CooldownCoroutine());
+        }
     }
 
     IEnumerator ActivateSkillCoroutine(float t)
@@ -64,9 +74,9 @@ public class Dash : MonoBehaviour, ISkills
         isActivated = true;
 
         // Animation
-        characterAnim.ChangeAnimationState(characterAnim.CHARACTER_SPECIAL);
-        gunAnim.ChangeGunAnimationState(gunAnim.SPECIAL);
-        legAnim.ChangeAnimationState(legAnim.SPECIAL);
+        characterAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, characterAnim.CHARACTER_SPECIAL);
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, gunAnim.SPECIAL);
+        legAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, legAnim.SPECIAL);
 
         // Lock Anim
         characterAnim.canChangeAnim = false;

@@ -34,14 +34,19 @@ public class Health : MonoBehaviour
         }
         
     }
-    
+
+    private Character damagedByCharacter;
 
     private void CheckIsDead() 
     {
         if (character.IsDead()) 
         {
             view.RPC("TeleportPlayer", RpcTarget.All);
+            damagedByCharacter = damagedBy.GetComponent<CharacterDisplay>().GetCharacter();
             ScoreManager.instance.transform.GetComponent<PhotonView>().RPC("AddPoint", RpcTarget.All, damagedBy.GetComponent<CharacterDisplay>().GetPlayerName());
+
+            damagedByCharacter.ResetHp();
+            damagedByCharacter.ultimate += damagedByCharacter.ultimateRechargeOnKill;
         } 
     }
 

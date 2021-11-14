@@ -30,13 +30,13 @@ public class PlayerMovementController : MonoBehaviour
 
             if (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0)
             {
-                characterAnim.ChangeAnimationState(characterAnim.CHARACTER_WALKING);
-                legAnim.ChangeAnimationState(legAnim.CHARACTER_WALKING);
+                characterAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, characterAnim.CHARACTER_WALKING);
+                legAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, legAnim.CHARACTER_WALKING);
             }
             else 
             {
-                characterAnim.ChangeAnimationState(characterAnim.CHARACTER_IDLE);
-                legAnim.ChangeAnimationState(legAnim.CHARACTER_IDLE);
+                characterAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, characterAnim.CHARACTER_IDLE);
+                legAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, legAnim.CHARACTER_WALKING);
             }
         }
     }

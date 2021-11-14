@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Bloodlust : MonoBehaviour, ISkills
 {
     [SerializeField] private float timeUnderSkillEffect;
-    [SerializeField] private float cooldown;
     [SerializeField] private Shoot shootScript;
+    [SerializeField] private Character character;
 
     private Weapon weapon;
     private int InitialBulletPerShot;
@@ -21,8 +22,10 @@ public class Bloodlust : MonoBehaviour, ISkills
 
     public void ActivateSkill()
     {
+        character.ultimate = 0;
         StartCoroutine(ActivateSkillCoroutine(timeUnderSkillEffect));
-        StartCoroutine(CooldownCoroutine(cooldown));
+        Debug.Log("StartCooldown");
+        StartCoroutine(CooldownCoroutine());
     }
 
     public bool IsActivated()
@@ -45,9 +48,9 @@ public class Bloodlust : MonoBehaviour, ISkills
         shootScript.UpdateUI();
 
         // Animation
-        characterAnim.ChangeAnimationState(characterAnim.CHARACTER_SPECIAL);
-        gunAnim.ChangeGunAnimationState(gunAnim.SPECIAL);
-        legAnim.ChangeAnimationState(legAnim.SPECIAL);
+        characterAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, characterAnim.CHARACTER_SPECIAL);
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.SPECIAL);
+        legAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, legAnim.SPECIAL);
 
         // Lock Anim
         characterAnim.canChangeAnim = false;
@@ -66,13 +69,24 @@ public class Bloodlust : MonoBehaviour, ISkills
         isActivated = false;
     }
 
-    IEnumerator CooldownCoroutine(float t) 
+    IEnumerator CooldownCoroutine() 
     {
+        Debug.Log("ultimate : " + character.ultimate);
         isOnCooldown = true;
 
-        yield return new WaitForSeconds(t);
+        yield return new WaitForSeconds(0.5f);
 
-        isOnCooldown = false;
+        if (character.ultimate >= character.ultimateMaxValue)
+        {
+            Debug.Log("Cooldown finished");
+            isOnCooldown = false;
+            character.ultimate = character.ultimateMaxValue;
+        }
+        else
+        {
+            character.ultimate += character.ultimateRechargeRate * 0.5f;
+            StartCoroutine(CooldownCoroutine());
+        }
     }
 
     // Start is called before the first frame update
