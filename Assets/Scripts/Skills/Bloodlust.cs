@@ -28,7 +28,8 @@ public class Bloodlust : MonoBehaviour, ISkills
         characterDisplay.ultimate = 0;
         StartCoroutine(ActivateSkillCoroutine(timeUnderSkillEffect));
         Debug.Log("StartCooldown");
-        StartCoroutine(CooldownCoroutine());
+        //StartCoroutine(CooldownCoroutine());
+        transform.GetComponent<PhotonView>().RPC("Cooldown", RpcTarget.All);
     }
 
     public bool IsActivated()
@@ -39,6 +40,12 @@ public class Bloodlust : MonoBehaviour, ISkills
     public bool IsOnCooldown()
     {
         return this.isOnCooldown;
+    }
+
+    [PunRPC]
+    public void Cooldown()
+    {
+        StartCoroutine(CooldownCoroutine());
     }
 
     IEnumerator ActivateSkillCoroutine(float t) 

@@ -36,7 +36,8 @@ public class FireWalk : MonoBehaviour, ISkills
     {
         characterDisplay.ultimate = 0;
         view.RPC("ActivateSkillRPC", RpcTarget.All);
-        StartCoroutine(CooldownCoroutine());
+        view.RPC("Cooldown", RpcTarget.All);
+        //StartCoroutine(CooldownCoroutine());
     }
 
     public bool IsActivated() {
@@ -46,6 +47,12 @@ public class FireWalk : MonoBehaviour, ISkills
 
     public bool IsOnCooldown() {
         return this.isOnCooldown;
+    }
+
+    [PunRPC]
+    public void Cooldown()
+    {
+        StartCoroutine(CooldownCoroutine());
     }
 
     IEnumerator CooldownCoroutine()
