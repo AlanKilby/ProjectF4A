@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef3bbebb1bba3843bba0f72e5fd4c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashTime: 0.2
+  dashTime: 0.175
   dashSpeed: 55
   healthScript: {fileID: 3998853232196680718}
   playerMovementController: {fileID: 5169311752073651599}
