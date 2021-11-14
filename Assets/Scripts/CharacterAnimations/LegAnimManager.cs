@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class LegAnimManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class LegAnimManager : MonoBehaviour
     {
         canChangeAnim = true;
     }
+
+    [PunRPC]
     public void ChangeAnimationState(string newState)
     {
         if (canChangeAnim)

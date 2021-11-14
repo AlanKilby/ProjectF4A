@@ -74,7 +74,7 @@ public class Shoot : MonoBehaviourPunCallbacks
         weapon.UpdateMagazine();
         UpdateUI();
 
-        gunAnim.ChangeGunAnimationState(gunAnim.FIRE);
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.FIRE);
 
         StartCoroutine(CooldownFireRateCoroutine(weapon.fireRate));
 
@@ -87,7 +87,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
         yield return new WaitForSeconds(t);
 
-        gunAnim.ChangeGunAnimationState(gunAnim.IDLE);
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.IDLE);
 
         canFire = true;
     }
@@ -126,7 +126,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
 
         yield return new WaitForSeconds(t);
-        gunAnim.ChangeGunAnimationState(gunAnim.IDLE);
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.IDLE);
 
         canFire = true;
         isReloading = false;

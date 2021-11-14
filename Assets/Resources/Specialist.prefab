@@ -851,6 +851,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3023300640880904266, guid: 4167caadc66491c4f9237dd387613a7b, type: 3}
   m_PrefabInstance: {fileID: 8521211980056506636}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3493387434338362470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5060476406197065066, guid: 4167caadc66491c4f9237dd387613a7b, type: 3}
+  m_PrefabInstance: {fileID: 8521211980056506636}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3493387434338362471 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5060476406197065067, guid: 4167caadc66491c4f9237dd387613a7b, type: 3}
@@ -866,9 +871,9 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7906866560854582551, guid: 4167caadc66491c4f9237dd387613a7b, type: 3}
   m_PrefabInstance: {fileID: 8521211980056506636}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3493387434338362470 stripped
+--- !u!1 &59755305723239463 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5060476406197065066, guid: 4167caadc66491c4f9237dd387613a7b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8544777667902582059, guid: 4167caadc66491c4f9237dd387613a7b, type: 3}
   m_PrefabInstance: {fileID: 8521211980056506636}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &59755305723239460 stripped
@@ -884,11 +889,6 @@ GameObject:
 --- !u!95 &6013694312752711878 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2681192345574816202, guid: 4167caadc66491c4f9237dd387613a7b, type: 3}
-  m_PrefabInstance: {fileID: 8521211980056506636}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &59755305723239463 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8544777667902582059, guid: 4167caadc66491c4f9237dd387613a7b, type: 3}
   m_PrefabInstance: {fileID: 8521211980056506636}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8832389301230504175
@@ -909,6 +909,47 @@ MonoBehaviour:
   canChangeAnim: 0
   playerMovementController: {fileID: 7444063327127672353}
   characterAnimator: {fileID: 59755305723239460}
+--- !u!114 &2855288049812359354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59755305723239463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 8066731726706207755}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &8066731726706207755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59755305723239463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!114 &4262360762706119875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,6 +968,47 @@ MonoBehaviour:
   canChangeAnim: 0
   playerMovementController: {fileID: 7444063327127672353}
   characterAnimator: {fileID: 2016407674101748763}
+--- !u!114 &8761953957732914635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016407674101748762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2213521264100503979}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &2213521264100503979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016407674101748762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!114 &3919082171960131053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,6 +1028,47 @@ MonoBehaviour:
   canChangeAnim: 0
   playerMovementController: {fileID: 7444063327127672353}
   characterAnimator: {fileID: 3493387434338362471}
+--- !u!114 &5123005871130798840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493387434338362470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 3297463061022989349}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &3297463061022989349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493387434338362470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!114 &268066259511066009
 MonoBehaviour:
   m_ObjectHideFlags: 0

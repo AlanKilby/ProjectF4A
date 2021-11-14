@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Bloodlust : MonoBehaviour, ISkills
 {
@@ -45,9 +46,9 @@ public class Bloodlust : MonoBehaviour, ISkills
         shootScript.UpdateUI();
 
         // Animation
-        characterAnim.ChangeAnimationState(characterAnim.CHARACTER_SPECIAL);
-        gunAnim.ChangeGunAnimationState(gunAnim.SPECIAL);
-        legAnim.ChangeAnimationState(legAnim.SPECIAL);
+        characterAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, characterAnim.CHARACTER_SPECIAL);
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.SPECIAL);
+        legAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, legAnim.SPECIAL);
 
         // Lock Anim
         characterAnim.canChangeAnim = false;
