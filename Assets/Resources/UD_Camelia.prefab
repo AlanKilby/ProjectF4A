@@ -475,6 +475,7 @@ MonoBehaviour:
   possibleSpawns: []
   canBeHit: 0
   deathExplosion: {fileID: 7541397955138072870, guid: f192da9000aae3a4eaef6f173f0828b3, type: 3}
+  healthBar: {fileID: 0}
 --- !u!114 &-8345138819912771136
 MonoBehaviour:
   m_ObjectHideFlags: 0

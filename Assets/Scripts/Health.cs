@@ -19,6 +19,8 @@ public class Health : MonoBehaviour
 
     public GameObject deathExplosion;
 
+    [SerializeField] private UD_HealthBar healthBar;
+
     private void Start()
     {
         view = transform.GetComponent<PhotonView>();
@@ -31,7 +33,8 @@ public class Health : MonoBehaviour
     {
         if (canBeHit)
         {
-            character.TakeDamage(damage);
+            view.RPC("TakeDamage", RpcTarget.All, damage);
+            //view.RPC("UpdateHealthBar", RpcTarget.All);
             CheckIsDead();
         }
         
@@ -61,6 +64,7 @@ public class Health : MonoBehaviour
 
     IEnumerator TeleportPlayerCoroutine() 
     {
+        //view.RPC("ResetHp", RpcTarget.All);
         character.ResetHp();
         meshRenderer.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false); // l'arme du joueur
@@ -69,6 +73,7 @@ public class Health : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
+        //view.RPC("ResetHP", RpcTarget.All);
         character.ResetHp();
         transform.GetChild(0).gameObject.SetActive(true);
         meshRenderer.enabled = true;

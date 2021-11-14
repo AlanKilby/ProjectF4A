@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class CharacterDisplay : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class CharacterDisplay : MonoBehaviour
         return this.playerName;
     }
 
+    [PunRPC]
     public void TakeDamage(int damage)
     {
         this.hp -= damage;
@@ -55,6 +57,7 @@ public class CharacterDisplay : MonoBehaviour
         else return true;
     }
 
+    [PunRPC]
     public void ResetHp()
     {
         this.hp = character.maxHp;

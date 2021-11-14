@@ -55,6 +55,9 @@ MonoBehaviour:
   - ChangeAnimationState
   - ChangeGunAnimationState
   - PlayAudioClip
+  - ResetHp
+  - TakeDamage
+  - UpdateHealthBar
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
