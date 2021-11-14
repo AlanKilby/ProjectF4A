@@ -38,7 +38,8 @@ public class Dash : MonoBehaviour, ISkills
     {
         characterDisplay.ultimate = 0;
         StartCoroutine(ActivateSkillCoroutine(dashTime));
-        StartCoroutine(CooldownCoroutine());
+        transform.GetComponent<PhotonView>().RPC("Cooldown", RpcTarget.All);
+        //StartCoroutine(CooldownCoroutine());
     }
 
     public bool IsActivated()
@@ -50,6 +51,12 @@ public class Dash : MonoBehaviour, ISkills
     public bool IsOnCooldown()
     {
         return this.isOnCooldown;
+    }
+
+    [PunRPC]
+    public void Cooldown()
+    {
+        StartCoroutine(CooldownCoroutine());
     }
 
     IEnumerator CooldownCoroutine()
