@@ -21,7 +21,7 @@ public class UD_CameliaBulletCounter : MonoBehaviour
     {
         if (view.IsMine)
         {
-            for (int i = 0; i <= weapon.magazineSizeMax; i++)
+            for (int i = 0; i < weapon.magazineSizeMax; i++)
             {
                 if (i >= weaponDisplay.magazine)
                 {

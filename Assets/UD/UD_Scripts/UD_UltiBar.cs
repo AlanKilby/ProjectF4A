@@ -28,6 +28,6 @@ public class UD_UltiBar : MonoBehaviour
     private void CalculateAmount()
     {
         //currentAmount = ch.hp / ch.maxHp;
-        currentAmount = CD.GetCharacter().hp / CD.GetCharacter().maxHp;
+        currentAmount = CD.ultimate / CD.GetCharacter().ultimateMaxValue;
     }
 }

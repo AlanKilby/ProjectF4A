@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 86203754193661056}
   - component: {fileID: 3020603238719454327}
   - component: {fileID: 6407443994564691820}
-  - component: {fileID: 2130240530949296760}
+  - component: {fileID: 8486799494148573308}
   m_Layer: 5
   m_Name: Ulti Bar Fill
   m_TagString: Untagged
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2130240530949296760
+--- !u!114 &8486799494148573308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,10 +250,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5584170488811852444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 103b52e33ec50d54ea7a87ed571a4106, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a4aa01fef9be174f9ec3ab084756532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ch: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
+  ch: {fileID: 0}
   CD: {fileID: 0}
 --- !u!1 &5815843557232787170
 GameObject:
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5363698388659770516
 MonoBehaviour:
   m_ObjectHideFlags: 0
