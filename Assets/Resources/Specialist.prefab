@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4652135493378246360}
   - component: {fileID: 1850424718279251272}
   - component: {fileID: 5456256880810662449}
+  - component: {fileID: 2701835523275065726}
   m_Layer: 0
   m_Name: DamageZone
   m_TagString: Untagged
@@ -58,6 +59,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+--- !u!114 &2701835523275065726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087584037238129753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 0}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3246533128200746805
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +332,6 @@ MonoBehaviour:
   possibleSpawns: []
   canBeHit: 0
   deathExplosion: {fileID: 7541397955138072870, guid: f192da9000aae3a4eaef6f173f0828b3, type: 3}
-  healthBar: {fileID: 0}
 --- !u!114 &1359292960704551926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,7 +1022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
+  ShowParameterInspector: 0
   m_SynchronizeParameters: []
   m_SynchronizeLayers:
   - SynchronizeType: 0

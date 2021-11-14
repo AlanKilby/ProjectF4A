@@ -83,8 +83,9 @@ public class FireWalk : MonoBehaviour, ISkills
     {
         isActivated = true;
 
+        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeGunAnimationState", RpcTarget.All, gunAnim.SPECIAL);
         legAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, legAnim.SPECIAL);
-        gunAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, gunAnim.SPECIAL);
+        characterAnim.transform.GetComponent<PhotonView>().RPC("ChangeAnimationState", RpcTarget.All, characterAnim.CHARACTER_SPECIAL);
         characterAnim.canChangeAnim = false;
         
 
