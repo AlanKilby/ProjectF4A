@@ -308,6 +308,7 @@ MonoBehaviour:
   possibleSpawns: []
   canBeHit: 0
   deathExplosion: {fileID: 7541397955138072870, guid: f192da9000aae3a4eaef6f173f0828b3, type: 3}
+  healthBar: {fileID: 0}
 --- !u!114 &1359292960704551926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf7f214aeb462a46b9f1e1da758ddc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUnderSkillEffect: 5
+  timeUnderSkillEffect: 7
   speedMultiplier: 2
   playerMovementController: {fileID: 7444063327127672353}
   damageZone: {fileID: 1087584037238129753}
@@ -806,6 +807,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4743316245937531313, guid: 1675be4947811994381d35894b6f71d5, type: 3}
+      propertyPath: CD
+      value: 
+      objectReference: {fileID: 4375560514162197838}
+    - target: {fileID: 4743316245937531313, guid: 1675be4947811994381d35894b6f71d5, type: 3}
+      propertyPath: ch
+      value: 
+      objectReference: {fileID: 11400000, guid: b1b2992f62ec75c4fbe0c2774ced1402, type: 2}
+    - target: {fileID: 8486799494148573308, guid: 1675be4947811994381d35894b6f71d5, type: 3}
+      propertyPath: CD
+      value: 
+      objectReference: {fileID: 4375560514162197838}
+    - target: {fileID: 8486799494148573308, guid: 1675be4947811994381d35894b6f71d5, type: 3}
+      propertyPath: ch
+      value: 
+      objectReference: {fileID: 11400000, guid: b1b2992f62ec75c4fbe0c2774ced1402, type: 2}
     - target: {fileID: 8999185855679258197, guid: 1675be4947811994381d35894b6f71d5, type: 3}
       propertyPath: m_Name
       value: Player Infos

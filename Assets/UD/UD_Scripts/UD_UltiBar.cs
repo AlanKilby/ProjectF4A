@@ -8,21 +8,21 @@ public class UD_UltiBar : MonoBehaviour
     public Character ch;
     public CharacterDisplay CD;
 
-    private Image healthBar;
+    private Image ultiBar;
 
     private float currentAmount;
 
     void Start()
     {
-        healthBar = GetComponent<Image>();
-        healthBar.fillAmount = 1.0f;
+        ultiBar = GetComponent<Image>();
+        ultiBar.fillAmount = 1.0f;
     }
 
 
     void Update()
     {
         CalculateAmount();
-        healthBar.fillAmount = currentAmount;
+        ultiBar.fillAmount = currentAmount;
     }
 
     private void CalculateAmount()
