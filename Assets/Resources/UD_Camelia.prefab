@@ -257,8 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUnderSkillEffect: 2
-  cooldown: 10
   shootScript: {fileID: 7831886606182892037}
+  character: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
   characterAnim: {fileID: 3901275888947244622}
   legAnim: {fileID: 8942237475072283367}
   gunAnim: {fileID: 3771077382723753663}
