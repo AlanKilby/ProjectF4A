@@ -24,7 +24,7 @@ public class CalculateBulletRange : MonoBehaviour
         {
             if (view.IsMine) 
             {
-                Pooler.instance.Depop("Bullet", transform.gameObject, rb);
+                PhotonNetwork.Destroy(this.view);
             }
         }
     }

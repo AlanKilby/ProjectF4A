@@ -30,6 +30,7 @@ public class Bloodlust : MonoBehaviour, ISkills
         Debug.Log("StartCooldown");
         //StartCoroutine(CooldownCoroutine());
         transform.GetComponent<PhotonView>().RPC("Cooldown", RpcTarget.All);
+        InitialBulletPerShot = weaponDisplay.bulletsPerShot;
     }
 
     public bool IsActivated()
@@ -74,7 +75,7 @@ public class Bloodlust : MonoBehaviour, ISkills
         gunAnim.canChangeAnim = true;
         legAnim.canChangeAnim = true;
 
-        weaponDisplay.bulletsPerShot = InitialBulletPerShot;
+        weaponDisplay.bulletsPerShot = 1;
 
         isActivated = false;
     }
@@ -104,6 +105,5 @@ public class Bloodlust : MonoBehaviour, ISkills
         isOnCooldown = false;
         isActivated = false;
         weapon = transform.GetChild(0).GetComponent<WeaponDisplay>().GetWeapon();
-        InitialBulletPerShot = weaponDisplay.bulletsPerShot;
     }
 }

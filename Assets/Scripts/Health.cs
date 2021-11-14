@@ -19,8 +19,6 @@ public class Health : MonoBehaviour
 
     public GameObject deathExplosion;
 
-    [SerializeField] private UD_HealthBar healthBar;
-
     private void Start()
     {
         view = transform.GetComponent<PhotonView>();

@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 5641201247437276483}
-  weaponDisplay: {fileID: 0}
+  weaponDisplay: {fileID: 2261509789440250992}
   camera: {fileID: 0}
   magazineUI: {fileID: 6570601664308804242}
   gunAnim: {fileID: 6786899504308959874}

@@ -140,6 +140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3149906208163811576}
   character: {fileID: 11400000, guid: 2831da647e3d7234aae0990cd4f90578, type: 2}
+  characterAnim: {fileID: 0}
+  legAnim: {fileID: 0}
   speedMultiplier: 0
   canMove: 0
 --- !u!114 &3126400518495343332
@@ -211,8 +213,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 6503815831721484769}
+  weaponDisplay: {fileID: 822434168255869138}
   camera: {fileID: 0}
   magazineUI: {fileID: 5702920288930897456}
+  gunAnim: {fileID: 0}
 --- !u!114 &-8628606390038080958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 2831da647e3d7234aae0990cd4f90578, type: 2}
+  hp: 0
+  ultimate: 0
 --- !u!114 &2555062149293414572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,9 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37425bcec70ae18418b366ec767ea2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 2831da647e3d7234aae0990cd4f90578, type: 2}
+  character: {fileID: 0}
   possibleSpawns: []
   canBeHit: 0
+  deathExplosion: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &-8345138819912771136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,8 +262,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUnderSkillEffect: 2
-  cooldown: 10
   shootScript: {fileID: 7831886606182892037}
+  character: {fileID: 0}
+  characterDisplay: {fileID: 0}
+  weaponDisplay: {fileID: 0}
+  characterAnim: {fileID: 0}
+  legAnim: {fileID: 0}
+  gunAnim: {fileID: 0}
+  horseshoeAnim: {fileID: 0}
 --- !u!114 &-6474706696257434374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 5a8b47fab9726c747adc8cbf245e6e9a, type: 2}
+  magazine: 0
+  bulletsPerShot: 0
 --- !u!1001 &6262753347787528721
 PrefabInstance:
   m_ObjectHideFlags: 0
