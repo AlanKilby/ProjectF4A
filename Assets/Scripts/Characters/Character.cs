@@ -8,10 +8,13 @@ public class Character : ScriptableObject
 {
     public string characterName;
 
-    public int hp;
-    public int maxHp;
+    public float hp;
+    public float maxHp;
     public float speed;
-    public int ultimate;
+    public float ultimateMaxValue;
+    public float ultimate;
+    public float ultimateRechargeRate;
+    public float ultimateRechargeOnKill;
 
     public Mesh mesh;
 

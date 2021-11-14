@@ -5,11 +5,11 @@ using Photon.Pun;
 
 public class FireWalk : MonoBehaviour, ISkills
 {
-    [SerializeField] private float cooldown;
     [SerializeField] private float timeUnderSkillEffect;
     [SerializeField] private float speedMultiplier;
     [SerializeField] private PlayerMovementController playerMovementController;
     [SerializeField] private GameObject damageZone;
+    [SerializeField] private Character character;
 
     public CharacterAnimManager characterAnim;
     public LegAnimManager legAnim;
@@ -34,7 +34,7 @@ public class FireWalk : MonoBehaviour, ISkills
     public void ActivateSkill()
     {
         view.RPC("ActivateSkillRPC", RpcTarget.All);
-        StartCoroutine(CooldownCoroutine(cooldown));
+        StartCoroutine(CooldownCoroutine());
     }
 
     public bool IsActivated() {
@@ -46,13 +46,22 @@ public class FireWalk : MonoBehaviour, ISkills
         return this.isOnCooldown;
     }
 
-    IEnumerator CooldownCoroutine(float t)
+    IEnumerator CooldownCoroutine()
     {
         isOnCooldown = true;
 
-        yield return new WaitForSeconds(t);
+        yield return new WaitForSeconds(0.5f);
 
-        isOnCooldown = false;
+        if (character.ultimate >= character.ultimateMaxValue)
+        {
+            isOnCooldown = false;
+            character.ultimate = character.ultimateMaxValue;
+        }
+        else
+        {
+            character.ultimate += character.ultimateRechargeRate * 0.5f;
+            StartCoroutine(CooldownCoroutine());
+        }
     }
 
     [PunRPC]
