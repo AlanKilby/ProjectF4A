@@ -556,6 +556,7 @@ MonoBehaviour:
   - {fileID: 2668394561973782421}
   - {fileID: 3500452699843714470}
   weapon: {fileID: 11400000, guid: 948c9b3251a3f874e964f907739da1fa, type: 2}
+  weaponDisplay: {fileID: 822434168255869138}
 --- !u!1 &2668394561973782421
 GameObject:
   m_ObjectHideFlags: 0
