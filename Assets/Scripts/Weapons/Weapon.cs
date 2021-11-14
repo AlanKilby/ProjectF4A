@@ -16,6 +16,8 @@ public class Weapon : ScriptableObject
     public float fireRate;
     public int bulletsPerShot;
     public float bulletSpeed;
+    public bool isShotgun;
+    public float deviation;
 
     public Mesh mesh;
 

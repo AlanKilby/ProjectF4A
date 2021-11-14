@@ -78,7 +78,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
         StartCoroutine(CooldownFireRateCoroutine(weapon.fireRate));
 
-        CreateBullet();
+        findWeaponType();
     }
 
     IEnumerator CooldownFireRateCoroutine(float t)
@@ -92,13 +92,32 @@ public class Shoot : MonoBehaviourPunCallbacks
         canFire = true;
     }
 
-    private void CreateBullet()
+    private float currentDeviation;
+
+    private void findWeaponType() 
     {
-        CalculateShotDirection();
+        if (weapon.isShotgun)
+        {
+            currentDeviation = -weapon.deviation;
+            for (int i = 0; i < 3; i++)
+            {
+                Debug.Log("shotgun entered");
+                CreateBullet(currentDeviation);
+                currentDeviation += weapon.deviation;
+            }
+        }
+        else
+        {
+            CreateBullet(0);
+        }
+    }
+
+    private void CreateBullet(float deviation)
+    {
+        CalculateShotDirection(deviation);
 
         bullet = Pooler.instance.Pop("Bullet");
-        bullet.transform.position = weaponTransform.position + weaponTransform.forward;
-        //bullet = PhotonNetwork.Instantiate(weapon.bulletPrefab.name, weaponTransform.position + weaponTransform.forward, Quaternion.identity);
+        bullet.transform.position = weaponTransform.position + weaponTransform.forward + weaponTransform.right * deviation * 0.02f;
         rb = bullet.GetComponent<Rigidbody>();
 
         bulletRange = bullet.GetComponent<CalculateBulletRange>();
@@ -134,9 +153,9 @@ public class Shoot : MonoBehaviourPunCallbacks
         UpdateUI();
     }
 
-    private void CalculateShotDirection() 
+    private void CalculateShotDirection(float deviation) 
     {
-        shotDirection = (mouseWorldPosition - weaponTransform.TransformPoint(Vector3.forward)).normalized;
+        shotDirection = Quaternion.Euler(0, deviation, 0) * (mouseWorldPosition - weaponTransform.TransformPoint(Vector3.forward)).normalized;
     }
 
     private Ray ray;
