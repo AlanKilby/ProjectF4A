@@ -440,6 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 6503815831721484769}
+  weaponDisplay: {fileID: 822434168255869138}
   camera: {fileID: 0}
   magazineUI: {fileID: 5702920288930897456}
   gunAnim: {fileID: 3771077382723753663}
@@ -456,6 +457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
+  hp: 0
+  ultimate: 0
 --- !u!114 &2555062149293414572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37425bcec70ae18418b366ec767ea2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
+  character: {fileID: -8628606390038080958}
   possibleSpawns: []
   canBeHit: 0
   deathExplosion: {fileID: 7541397955138072870, guid: f192da9000aae3a4eaef6f173f0828b3, type: 3}
@@ -487,6 +490,8 @@ MonoBehaviour:
   timeUnderSkillEffect: 2
   shootScript: {fileID: 7831886606182892037}
   character: {fileID: 11400000, guid: 35c870eaa2fecbd4bb0b050fb5a4f9f5, type: 2}
+  characterDisplay: {fileID: -8628606390038080958}
+  weaponDisplay: {fileID: 822434168255869138}
   characterAnim: {fileID: 3901275888947244622}
   legAnim: {fileID: 8942237475072283367}
   gunAnim: {fileID: 3771077382723753663}
@@ -1120,6 +1125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 948c9b3251a3f874e964f907739da1fa, type: 2}
+  magazine: 0
+  bulletsPerShot: 0
 --- !u!1 &8042618392003627737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,11 +1277,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9fe87ce28cb57d41ac503b1a783ba28, type: 3}
---- !u!95 &655811223215909338 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5555570814393307950, guid: d9fe87ce28cb57d41ac503b1a783ba28, type: 3}
-  m_PrefabInstance: {fileID: 4900113128291793652}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &421228422030426715 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4744599283312064687, guid: d9fe87ce28cb57d41ac503b1a783ba28, type: 3}
@@ -1303,6 +1305,11 @@ GameObject:
 --- !u!1 &655811223215909339 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5555570814393307951, guid: d9fe87ce28cb57d41ac503b1a783ba28, type: 3}
+  m_PrefabInstance: {fileID: 4900113128291793652}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &655811223215909338 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5555570814393307950, guid: d9fe87ce28cb57d41ac503b1a783ba28, type: 3}
   m_PrefabInstance: {fileID: 4900113128291793652}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &349978395873751435

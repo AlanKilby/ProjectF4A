@@ -10,6 +10,7 @@ public class FireWalk : MonoBehaviour, ISkills
     [SerializeField] private PlayerMovementController playerMovementController;
     [SerializeField] private GameObject damageZone;
     [SerializeField] private Character character;
+    [SerializeField] private CharacterDisplay characterDisplay;
 
     public CharacterAnimManager characterAnim;
     public LegAnimManager legAnim;
@@ -33,6 +34,7 @@ public class FireWalk : MonoBehaviour, ISkills
     }
     public void ActivateSkill()
     {
+        characterDisplay.ultimate = 0;
         view.RPC("ActivateSkillRPC", RpcTarget.All);
         StartCoroutine(CooldownCoroutine());
     }
@@ -52,14 +54,14 @@ public class FireWalk : MonoBehaviour, ISkills
 
         yield return new WaitForSeconds(0.5f);
 
-        if (character.ultimate >= character.ultimateMaxValue)
+        if (characterDisplay.ultimate >= character.ultimateMaxValue)
         {
             isOnCooldown = false;
-            character.ultimate = character.ultimateMaxValue;
+            characterDisplay.ultimate = character.ultimateMaxValue;
         }
         else
         {
-            character.ultimate += character.ultimateRechargeRate * 0.5f;
+            characterDisplay.ultimate += character.ultimateRechargeRate * 0.5f;
             StartCoroutine(CooldownCoroutine());
         }
     }

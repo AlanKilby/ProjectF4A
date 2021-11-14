@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private Character character;
+    [SerializeField] private CharacterDisplay character;
 
     private GameObject damagedBy;
 
