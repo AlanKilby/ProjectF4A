@@ -52,6 +52,9 @@ MonoBehaviour:
   - RespawnRPC
   - DepopRPC
   - ActivateSkillRPC
+  - ChangeAnimationState
+  - ChangeGunAnimationState
+  - PlayAudioClip
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
