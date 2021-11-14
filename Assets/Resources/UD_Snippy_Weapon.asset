@@ -18,10 +18,10 @@ MonoBehaviour:
   magazineSizeMax: 3
   reloadTime: 0.5
   numberBulletReload: 3
-  range: 10
+  range: 15
   fireRate: 0.5
   bulletsPerShot: 1
-  bulletSpeed: 23
+  bulletSpeed: 30
   isShotgun: 1
   deviation: 8
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
