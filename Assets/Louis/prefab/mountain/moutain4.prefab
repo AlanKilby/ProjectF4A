@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1322021646103427477}
   - component: {fileID: 2735681942737401392}
   - component: {fileID: 149726487237411578}
+  - component: {fileID: -3986287984406939761}
   m_Layer: 0
   m_Name: moutain4
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-3986287984406939761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806808776224760623}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.4129677, y: 6.1714244, z: 4.4569354}
+  m_Center: {x: 0.0741595, y: 0.3437874, z: 1.9055507}
