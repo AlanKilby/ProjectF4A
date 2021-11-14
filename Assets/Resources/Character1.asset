@@ -15,6 +15,6 @@ MonoBehaviour:
   characterName: Shepard
   hp: 35
   maxHp: 35
-  speed: 5
+  speed: 10
   ultimate: 0
   mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}

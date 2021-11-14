@@ -40,6 +40,18 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - TeleportPlayer
+  - CheckIfWin
+  - ShowWinner
+  - AddPlayer
+  - AddPoint
+  - RestartGame
+  - ResetScore
+  - UpdateDictionary
+  - RepawnRPC
+  - Repawn
+  - RespawnRPC
+  - DepopRPC
+  - ActivateSkillRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -3,38 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Health : MonoBehaviourPunCallbacks
+public class Health : MonoBehaviour
 {
     [SerializeField] private Character character;
 
-    private Vector3 spawnPos = new Vector3(0, 1.5f, 0);
-    [SerializeField] private List<Vector3> possibleSpawns = new List<Vector3>();
+    private GameObject damagedBy;
+
+    [SerializeField] private List<Vector3> possibleSpawns;
 
     private PhotonView view;
 
     private MeshRenderer meshRenderer;
 
+    public bool canBeHit;
 
     private void Start()
     {
         view = transform.GetComponent<PhotonView>();
         meshRenderer = transform.GetComponent<MeshRenderer>();
-
-        possibleSpawns.Add(spawnPos);
+        possibleSpawns = Spawner.instance.GetPossibleSpawns();
+        canBeHit = true;
     }
 
     public void TakeDamage(int damage) 
     {
-        character.TakeDamage(damage);
-        CheckIsDead();
+        if (canBeHit)
+        {
+            character.TakeDamage(damage);
+            CheckIsDead();
+        }
+        
     }
+    
 
     private void CheckIsDead() 
     {
         if (character.IsDead()) 
         {
-            Debug.Log("Died !");
             view.RPC("TeleportPlayer", RpcTarget.All);
+            ScoreManager.instance.transform.GetComponent<PhotonView>().RPC("AddPoint", RpcTarget.All, damagedBy.GetComponent<CharacterDisplay>().GetPlayerName());
         } 
     }
 
@@ -46,6 +53,7 @@ public class Health : MonoBehaviourPunCallbacks
 
     IEnumerator TeleportPlayerCoroutine() 
     {
+        character.ResetHp();
         meshRenderer.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false); // l'arme du joueur
 
@@ -64,5 +72,10 @@ public class Health : MonoBehaviourPunCallbacks
     {
         rand = Random.Range(0, possibleSpawns.Count - 1);
         return possibleSpawns[rand];
+    }
+
+    public void SetDamagedBy(GameObject damagedBy)
+    {
+        this.damagedBy = damagedBy;
     }
 }
