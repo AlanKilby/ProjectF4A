@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1322021646103427477}
   - component: {fileID: 2735681942737401392}
   - component: {fileID: 149726487237411578}
-  - component: {fileID: -3986287984406939761}
+  - component: {fileID: 7758275448713149254}
   m_Layer: 0
   m_Name: moutain4
   m_TagString: Untagged
@@ -82,7 +82,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &-3986287984406939761
+--- !u!65 &7758275448713149254
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
