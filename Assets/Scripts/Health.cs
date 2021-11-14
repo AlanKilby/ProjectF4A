@@ -17,6 +17,8 @@ public class Health : MonoBehaviour
 
     public bool canBeHit;
 
+    public GameObject deathExplosion;
+
     private void Start()
     {
         view = transform.GetComponent<PhotonView>();
@@ -41,6 +43,7 @@ public class Health : MonoBehaviour
     {
         if (character.IsDead()) 
         {
+            PhotonNetwork.Instantiate(deathExplosion.name, transform.position, Quaternion.identity);
             view.RPC("TeleportPlayer", RpcTarget.All);
             damagedByCharacter = damagedBy.GetComponent<CharacterDisplay>().GetCharacter();
             ScoreManager.instance.transform.GetComponent<PhotonView>().RPC("AddPoint", RpcTarget.All, damagedBy.GetComponent<CharacterDisplay>().GetPlayerName());

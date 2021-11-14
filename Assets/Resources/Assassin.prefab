@@ -245,6 +245,7 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: 2831da647e3d7234aae0990cd4f90578, type: 2}
   possibleSpawns: []
   canBeHit: 0
+  deathExplosion: {fileID: 7541397955138072870, guid: f192da9000aae3a4eaef6f173f0828b3, type: 3}
 --- !u!114 &3615994948602882136
 MonoBehaviour:
   m_ObjectHideFlags: 0

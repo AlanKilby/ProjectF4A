@@ -304,6 +304,7 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: b1b2992f62ec75c4fbe0c2774ced1402, type: 2}
   possibleSpawns: []
   canBeHit: 0
+  deathExplosion: {fileID: 7541397955138072870, guid: f192da9000aae3a4eaef6f173f0828b3, type: 3}
 --- !u!114 &1359292960704551926
 MonoBehaviour:
   m_ObjectHideFlags: 0
