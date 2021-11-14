@@ -30,9 +30,13 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     private PhotonView view;
 
+    private UD_ScreenShake shake;
+
     private void Start()
     {
         view = transform.GetComponent<PhotonView>();
+
+        shake = GetComponent<UD_ScreenShake>();
 
         weapon = weaponTransform.GetComponent<WeaponDisplay>().GetWeapon();
         weapon.ReloadEntireMagazine();
@@ -71,6 +75,8 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     private void Fire()
     {
+        shake.StartShake();
+
         weapon.UpdateMagazine();
         UpdateUI();
 
@@ -117,7 +123,7 @@ public class Shoot : MonoBehaviourPunCallbacks
         CalculateShotDirection(deviation);
 
         bullet = Pooler.instance.Pop("Bullet");
-        bullet.transform.position = weaponTransform.position + weaponTransform.forward + weaponTransform.right * deviation * 0.02f;
+        bullet.transform.position = weaponTransform.position + weaponTransform.forward + weaponTransform.right * deviation * 0.04f;
         rb = bullet.GetComponent<Rigidbody>();
 
         bulletRange = bullet.GetComponent<CalculateBulletRange>();

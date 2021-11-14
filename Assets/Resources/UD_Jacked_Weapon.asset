@@ -16,11 +16,13 @@ MonoBehaviour:
   damage: 30
   magazine: 1
   magazineSizeMax: 1
-  reloadTime: 0.35
+  reloadTime: 0.4
   numberBulletReload: 1
   range: 15
-  fireRate: 0.35
+  fireRate: 0.4
   bulletsPerShot: 1
   bulletSpeed: 20
-  mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  isShotgun: 0
+  deviation: 0
+  mesh: {fileID: 4300030, guid: 1ec55baed88ac07429a52bee4c519015, type: 3}
   bulletPrefab: {fileID: 3334045324643100983, guid: 504439d2946002d498f1b057324b3fe5, type: 3}
