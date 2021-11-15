@@ -12,6 +12,8 @@ public class DealDamage : MonoBehaviour
 
     private PhotonView view;
 
+    public bool destroyable;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
@@ -26,7 +28,7 @@ public class DealDamage : MonoBehaviour
         }
 
         view = transform.GetComponent<PhotonView>();
-        if (view.IsMine) 
+        if (view.IsMine && destroyable) 
         {
             PhotonNetwork.Destroy(view);
         }
